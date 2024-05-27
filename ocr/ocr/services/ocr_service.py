@@ -1,6 +1,7 @@
 import base64
 from typing import List
 import requests
+from autonode.logger.logger import logger
 from ocr.ocr.configs.settings import OcrConfig
 from ocr.ocr.services.easy_ocr import EasyOcr
 from ocr.ocr.utils.box_utils import convert_units_of_bbox, get_point
@@ -53,6 +54,7 @@ class OcrService:
 
         response = requests.post(OcrConfig.ocr_remote_url, headers=headers, json=payload)
         result = response.json()
+        logger.info(f"OCR Remote Prediction Result {result}")
         return result['results']
 
     def _do_ocr(self, image_path):
