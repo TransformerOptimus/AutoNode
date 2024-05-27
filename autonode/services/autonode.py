@@ -30,9 +30,10 @@ class AutonodeService(ABC):
         self.root_node = root_node
 
         self.config = Settings()
-        self.s3_client = S3Helper(access_key=self.config.AWS_ACCESS_KEY_ID,
-                                  secret_key=self.config.AWS_SECRET_ACCESS_KEY,
-                                  bucket_name=self.config.bucket_name)
+        # Uncomment If you have aws account and want to store result in your AWS S3
+        # self.s3_client = S3Helper(access_key=self.config.AWS_ACCESS_KEY_ID,
+        #                           secret_key=self.config.AWS_SECRET_ACCESS_KEY,
+        #                           bucket_name=self.config.bucket_name)
 
         self.loop = asyncio.new_event_loop()
         asyncio.set_event_loop(self.loop)
@@ -61,7 +62,8 @@ class AutonodeService(ABC):
                     web_automater=self.web_automator,
                     previous_node=self.prev_graph_node,
                     db_session=session,
-                    s3_client=self.s3_client,
+                    # Pass self.s3_client If you have AWS account and want to store result in your AWS S3
+                    s3_client=None,
                     request_id=request_id,
                     request_dir=request_dir,
                     prompt=self.prompt,
@@ -78,20 +80,20 @@ class AutonodeService(ABC):
                 break
 
     def run(self, session: Session, request_id: int, request_dir: str, url: str):
-        # try:
-        Requests.update_request_status(session=session, request_id=request_id,
-                                       status=RequestStatus.IN_PROGRESS.value)
-        self._setup_directories(request_id=request_id, request_dir=request_dir)
-        self._initialise(url=url)
-        self._run(session=session, request_id=request_id, request_dir=request_dir)
-        Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.COMPLETED.value)
-        # except Exception as e:
-        Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.FAILED.value)
-        logger.error(f"Error in executing the objective for request id {request_id}: {e}")
-        # finally:
-        if self.web_automator:
-            self.loop.run_until_complete(self.web_automator.stop_trace(request_dir))
-            self.loop.run_until_complete(self.web_automator.close_browser())
+        try:
+            Requests.update_request_status(session=session, request_id=request_id,
+                                           status=RequestStatus.IN_PROGRESS.value)
+            self._setup_directories(request_id=request_id, request_dir=request_dir)
+            self._initialise(url=url)
+            self._run(session=session, request_id=request_id, request_dir=request_dir)
+            Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.COMPLETED.value)
+        except Exception as e:
+            Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.FAILED.value)
+            logger.error(f"Error in executing the objective for request id {request_id}: {e}")
+        finally:
+            if self.web_automator:
+                self.loop.run_until_complete(self.web_automator.stop_trace(request_dir))
+                self.loop.run_until_complete(self.web_automator.close_browser())
 
     def _setup_directories(self, request_id: int, request_dir: str):
         self.cropped_image_folder = os.path.join("cropped_image", str(request_id))

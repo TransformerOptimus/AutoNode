@@ -77,6 +77,7 @@ def initiate_autonode(
         Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.FAILED.value)
         logger.error(f"Error: {str(e)}, traceback : {traceback.print_exc()}")
     finally:
+        # Comment if you don't want to delete screenshots locally
         if os.path.exists(screenshots_dir):
             logger.info(f"Deleting request directory {screenshots_dir}")
             shutil.rmtree(screenshots_dir)

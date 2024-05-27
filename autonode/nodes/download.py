@@ -36,7 +36,8 @@ class DownloadNode(ClickableAndTypeableNode):
 
         logger.info(f"Downloaded the output to {download_file_path}")
 
-        s3_client.upload_file(file_path=download_file_path)
+        # Uncomment If you have aws account and want to store result in your AWS S3
+        # s3_client.upload_file(file_path=download_file_path)
         Files.add_file(
             session=db_session,
             request_id=request_id,
