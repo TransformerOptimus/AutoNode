@@ -1,0 +1,13 @@
+{
+  "bootstrap.servers": "pkc-2396y.us-east-1.aws.confluent.cloud:9092",
+  "client.id": "task-executor-automation-service-group",
+  "group.id":  "task-executor-automation-service-group",
+  "acks": "all",
+  "retries": 3,
+  "security.protocol": "SASL_SSL",
+  "sasl.mechanism": "PLAIN",
+  "sasl.username": "7ZOQXYK5REZHTWQY",
+  "sasl.password": "JlSBq0+n6XThqSvJMINdhSnKNGvjRGz/mK+b+Wbkt1htw2qiP2sHQ/AXFNgMmPP/",
+  "linger.ms": 5,
+  "batch.size": 32768
+}

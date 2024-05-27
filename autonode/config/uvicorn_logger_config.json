@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "disable_existing_loggers": true,
+    "filters": {
+        "correlation_id": {
+            "()": "asgi_correlation_id.CorrelationIdFilter"
+        }
+    },
+    "formatters": {
+        "default": {
+            "()": "uvicorn.logging.DefaultFormatter",
+            "fmt": "%(levelprefix)s  %(message)s",
+            "use_colors": null
+        },
+        "access": {
+            "()": "uvicorn.logging.AccessFormatter",
+            "fmt": "%(levelname)s: [%(correlation_id)s] %(message)s",
+            "use_colors": null
+        }
+    },
+    "handlers": {
+        "default": {
+            "formatter": "default",
+            "class": "logging.StreamHandler",
+            "stream": "ext://sys.stderr"
+        },
+        "access": {
+            "formatter": "access",
+            "class": "logging.StreamHandler",
+            "stream": "ext://sys.stdout",
+            "filters": ["correlation_id"]
+        }
+    },
+    "loggers": {
+        "uvicorn": {"handlers": ["default"], "level": "INFO"},
+        "uvicorn.error": {"handlers": ["default"], "level": "INFO"},
+        "uvicorn.access": {"handlers": ["access"], "level": "INFO", "propagate": false}
+    }
+}

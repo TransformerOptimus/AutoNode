@@ -1,0 +1,2136 @@
+{
+    "1": {
+        "node_type": "planning",
+        "node_name": "Planning Node",
+        "description": "Plan the execution on the website. Extract the execution in steps explaining the LLM how to proceed.",
+        "planning_prompt": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            110
+        ]
+    },
+    "110": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Work Email",
+        "actionable_element_type": "textbox",
+        "location": [
+            34.5,
+            54.90
+        ],
+        "is_type": true,
+        "description": "Textbox used to input the email of the person for login in to apollo.",
+        "type_description": "Type the email of the person you want to login with.",
+        "adjacent_from": [],
+        "adjacent_to": [
+            111
+        ]
+    },
+    "111": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Enter your password",
+        "actionable_element_type": "textbox",
+        "location": [
+            34.5,
+            57.90
+        ],
+        "is_type": true,
+        "description": "Textbox used for inputting the password of the person for login in to apollo.",
+        "type_description": "Type the password of the person you want to login with.",
+        "adjacent_from": [],
+        "adjacent_to": [
+            2
+        ]
+    },
+    "2": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Search",
+        "actionable_element_type": "button",
+        "location": [
+            7.82,
+            24.36
+        ],
+        "is_type": false,
+        "description": "Button is used to search `People`, `Companies` and `Saved Lists` based on criteria filters. This button will take you the people/company/list page which will to search using filters",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            5,
+            6,
+            7
+        ]
+    },
+    "3": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Analytics",
+        "actionable_element_type": "button",
+        "location": [
+            8.23,
+            71.62
+        ],
+        "is_type": false,
+        "description": "Button is used to create reports and dashboard to monitor performance and distill data",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": []
+    },
+    "4": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Search Apollo",
+        "actionable_element_type": "textbox",
+        "location": [
+            72.7,
+            11.73
+        ],
+        "is_type": true,
+        "description": "Search the apollo website for companies, sequences, deals and more...",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": []
+    },
+    "5": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "People",
+        "actionable_element_type": "button",
+        "location": [
+            19.22,
+            22.46
+        ],
+        "is_type": false,
+        "description": "Button to select People tab. Search for People / individuals with precision using robust filters. Choose this button to get information regarding leads on people so that People and people specific filters can be viewed here.",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            73,
+            68
+        ]
+    },
+    "6": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Companies",
+        "actionable_element_type": "button",
+        "location": [
+            27.7,
+            22.46
+        ],
+        "is_type": false,
+        "description": "Button to select Company tab. Search for companies with precision using robust filters. Choose this button  to get information regarding leads on companies so that Company specific filters can be viewed here",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            8,
+            103
+        ]
+    },
+    "7": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Saved Lists",
+        "actionable_element_type": "button",
+        "location": [
+            36.54,
+            22.24
+        ],
+        "is_type": false,
+        "description": "View and create saved lists of people and companies for easier outreach",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": []
+    },
+    "8": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "More Filters",
+        "actionable_element_type": "button",
+        "location": [
+            28.58,
+            38.24
+        ],
+        "is_type": false,
+        "description": "Button used to access filters for companies, such as company size, revenue, specific industries,Account location technologies used, and other relevant parameters",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9
+        ]
+    },
+    "73": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "More Filters",
+        "actionable_element_type": "button",
+        "location": [
+            28.58,
+            38.24
+        ],
+        "is_type": false,
+        "description": "Button used to access filters for people, such as Job Titles, Total Years of Experience, TIme Zone, personal information, location, Industry and other relevant parameters specific to person info, engagement activity etc.",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            51
+        ]
+    },
+    "9": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Search filters",
+        "actionable_element_type": "textbox",
+        "location": [
+            28.34,
+            38.09
+        ],
+        "is_type": true,
+        "description": "textbox to Type and search for filters specific and relevant to companies. You can choose this button if you want to select filters related to company info ('Company', 'Account Location', '# Employees', 'Technologies' ,'Revenue', 'Funding', 'Founded Year','Industry & Keywords', 'Job Postings'). You can type and search for filters specific and relevant to Companies. You can choose this button if you want to select filters related to company info ('Company', 'Account Location', '# Employees', 'Technologies' ,'Revenue', 'Funding', 'Founded Year','Industry & Keywords' 'Job Postings'). If no filters are chosen in this step then proceed to Apply Filters.",
+        "type_description": "Based on the user input, type and select the filter strictly and only from the following options, Note only select ONE filter to type at a time : Company, Location, # Employees, Technologies ,Revenue, Lists, Funding, Industry & Keywords, Job Postings. Only type one filter at a single time. In case of multiple search filter criteria, proceed with one filter criteria and its required steps at a time, then add another filter using the more filters flow. \n DON'T Leave this field empty. Always choose a filter from the OPTIONS.",
+        "adjacent_from": [],
+        "adjacent_to": [
+            11,
+            12,
+            13,
+            21,
+            49,
+            25,
+            74,
+            52,
+            89,
+            95,
+            108
+        ]
+    },
+    "51": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Search filters",
+        "actionable_element_type": "textbox",
+        "location": [
+            28.34,
+            38.09
+        ],
+        "is_type": true,
+        "description": "textbox to Type and search for filters specific and relevant to People. You can choose this button if you want to select filters related to person info ('Time Zone', 'Job Titles', 'Total Years of Experience', 'Job change', 'Time in current role, Industry & Keywords', 'Job Postings'), Email Engagement activity (like 'Email Status', 'Email opened') and more. If no filters are chosen in this step then proceed to Apply Filters.",
+        "type_description": "Based on the user input, type a filter strictly and only from the following options, Note only type only ONE filter at a time: Job Titles, Time Zone, Total Years of Experience, Company, Email Status, Funding, Revenue, Technologies, # Employees, Industry & Keywords. \n DON'T Leave this field empty. Always choose a filter from the OPTIONS.",
+        "adjacent_from": [],
+        "adjacent_to": [
+            52,
+            53,
+            54,
+            55,
+            74,
+            11,
+            12,
+            13,
+            21,
+            25,
+            89,
+            10
+        ]
+    },
+    "10": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Apply Filters",
+        "actionable_element_type": "button",
+        "location": [
+            95.51,
+            40.66
+        ],
+        "is_type": false,
+        "description": "Button to apply the selected filters. Choose this button if and only if all the filters under the People tab are selected.",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            68,
+            6
+        ]
+    },
+    "108": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Apply Filters",
+        "actionable_element_type": "button",
+        "location": [
+            95.51,
+            40.66
+        ],
+        "is_type": false,
+        "description": "Button to apply the selected filters. Choose this button if and only if all the filters under the Companies tab are selected.",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            5,
+            103
+        ]
+    },
+    "95": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Job Postings",
+        "actionable_element_type": "button",
+        "location": [
+            21.71,
+            40.66
+        ],
+        "is_type": false,
+        "description": "If 'Job Postings' is typed in the search filter, then the user can select the Job Postings filter to search for companies which are currently hiring. This feature is crucial for targeting sales and marketing efforts more effectively. Users can pinpoint companies hiring for specific roles that may benefit from their products or services, assess the timing for outreach by identifying new job openings, and tailor their sales pitches to address the potential needs highlighted by the open positions. Additionally, this filter assists in market analysis, enabling users to observe industry trends and competitive dynamics.",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            96
+        ]
+    },
+    "96": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Enter job titles...",
+        "actionable_element_type": "dropdown",
+        "location": [
+            21.71,
+            43.66
+        ],
+        "is_type": true,
+        "description": "Dropdown to type and specify particular job titles the user is interested in when searching for companies with job openings. It refines the search to roles relevant to the user\u2019s offerings based on the input objective.",
+        "type_description": "You should type in the job titles to filter companies that are hiring for the specific positions based on the input objective, aiding in targeted sales and marketing efforts. If and only In case of multiple job titles type them as a list of comma seperated values like ['manager', 'accountant'] else if in case of only one job title type it as a string like 'Manager'",
+        "adjacent_from": [],
+        "adjacent_to": [
+            96,
+            9,
+            108
+        ]
+    },
+    "97": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Enter locations...",
+        "actionable_element_type": "dropdown",
+        "location": [
+            21.71,
+            46.66
+        ],
+        "is_type": true,
+        "description": "This dropdown is used to filter job postings by geographic location. It enables users to focus on a specific area, which is particularly useful for location-based targeting as specified by the input objective to target companies which are hiring in a particular and specific location",
+        "type_description": "You can type in the geographical locations to target companies which are hiring for given job titles in a specific location based on the input objective, to narrow down the job postings to a desired area. If and only In case of Multiple Locations ALWAYS type them  as a list of comma(,) separated values like ['India', 'London'] else in case of only one location type just the string like 'India'. In case abbreviated locations are specified then ALWAYS look up for the entire location or the closest match to that (for example if ND is given in the input, location should be North Dakota, OH is Ohio etc.) and so on",
+        "adjacent_from": [],
+        "adjacent_to": [
+            97,
+            9,
+            108
+        ]
+    },
+    "74": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Funding",
+        "actionable_element_type": "button",
+        "location": [
+            23.24,
+            46.79
+        ],
+        "is_type": false,
+        "description": "If Funding is typed in the search filters, then select the Funding filter to search for companies or startups based on their funding status",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            85,
+            83,
+            84,
+            86,
+            87,
+            88
+        ]
+    },
+    "75": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Seed",
+        "actionable_element_type": "button",
+        "location": [
+            23.24,
+            50
+        ],
+        "is_type": false,
+        "description": "If Funding is typed in the search filters, then the user can select the Funding filter to search for companies based on their funding status",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            85,
+            84,
+            86,
+            87,
+            88,
+            108,
+            9
+        ]
+    },
+    "76": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Angel",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            53.79
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with angel funded status. You can choose this button to get the list of companies which have received angel funding",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            85,
+            84,
+            86,
+            87,
+            88,
+            108,
+            9
+        ]
+    },
+    "77": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Venture (Round not Specified)",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            56.79
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with Venture funded status. You can choose this button to get the list of companies which have received Venture funding or companies whose round is not specified",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            108,
+            9
+        ]
+    },
+    "78": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Series A",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            59.79
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with Series A funded status. You can choose this button to get the list of companies which have received Series A funding",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            77,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            108,
+            9
+        ]
+    },
+    "79": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Series B",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            62.79
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with Series B funded status. You can choose this button to get the list of companies which have received Series B funding",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            77,
+            78,
+            80,
+            81,
+            82,
+            85,
+            83,
+            84,
+            86,
+            87,
+            88,
+            108,
+            9
+        ]
+    },
+    "80": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Series C",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            65.79
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with Series C funded status. You can choose this button to get the list of companies which have received Series C funding",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            77,
+            78,
+            79,
+            81,
+            82,
+            83,
+            84,
+            86,
+            87,
+            88,
+            108,
+            9
+        ]
+    },
+    "81": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Series D",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            68.79
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with Series D funded status. You can choose this button to get the list of companies which have received Series D funding",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            82,
+            85,
+            83,
+            84,
+            86,
+            87,
+            88,
+            108,
+            9
+        ]
+    },
+    "82": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Series E",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            71.79
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with Series E funded status. You can choose this button to get the list of companies which have received Series E funding",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            85,
+            83,
+            84,
+            86,
+            87,
+            88,
+            108,
+            9
+        ]
+    },
+    "83": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Series F",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            74.79
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with Series F funded status. You can choose this button to get the list of companies which have received Series F funding",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            85,
+            84,
+            86,
+            87,
+            88,
+            108,
+            9
+        ]
+    },
+    "84": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Debt Financing",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            76.79
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with Debt Financing funded status. You can choose this button to get the list of companies which have received Debt Financing funding",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            85,
+            86,
+            87,
+            88,
+            108,
+            9
+        ]
+    },
+    "85": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Equity Crowdfunding",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            79.79
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with Equity Crowdfunding funded status. You can choose this button to get the list of companies which have received Equity crowd funding",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            86,
+            87,
+            88,
+            108,
+            9
+        ]
+    },
+    "86": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Convertible note",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            82.79
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with convertible note funded status. You can choose this button to get the list of companies which have received convertible note funding",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            85,
+            83,
+            84,
+            87,
+            88,
+            108,
+            9
+        ]
+    },
+    "87": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Private Equity",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            85.79
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with private equity funded status. You can choose this button to get the list of companies which have received private equity funding",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            85,
+            83,
+            84,
+            86,
+            88,
+            108,
+            9
+        ]
+    },
+    "88": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Other",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.24,
+            88
+        ],
+        "is_type": false,
+        "description": "Checkbox to select companies with unspecified funding status other than those present",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            85,
+            83,
+            84,
+            86,
+            87,
+            108,
+            9
+        ]
+    },
+    "89": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Industry & Keywords",
+        "actionable_element_type": "button",
+        "location": [
+            25.24,
+            46.88
+        ],
+        "is_type": false,
+        "description": "If Industry & Keywords is typed in the search filters, then the user can select the Industry & Keywords filter to search for specific industry domain for a company. You can select this button to include/exclude industries as specified by the user",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            90
+        ]
+    },
+    "90": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Search Industries...",
+        "actionable_element_type": "dropdown",
+        "location": [
+            26.24,
+            49.88
+        ],
+        "is_type": true,
+        "description": "Dropdown to type and search for specific industries to be included strictly from the provided list of keywords : 'information technology & services','construction','marketing & advertising','real estate','health, wellness & fitness','management consulting','computer software','internet','retail','financial services','consumer services','hospital & health care','automotive','restaurants','education management','food & beverages','design','hospitality','accounting','events services','nonprofit organization management','entertainment','electrical/electronic manufacturing','leisure, travel & tourism','professional training & coaching','transportation/trucking/railroad','law practice','apparel & fashion','architecture & planning','mechanical or industrial engineering','insurance','telecommunications','human resources','staffing & recruiting','sports','legal services','oil & energy','media production','machinery','wholesale','consumer goods','music','photography','medical practice','cosmetics','environmental services','graphic design','business supplies & equipment','renewables & environment','facilities services','publishing','food production','arts & crafts','building materials','civil engineering','religious institutions','public relations & communications','higher education','printing','furniture','mining & metals','logistics & supply chain','research','pharmaceuticals','individual & family services','medical devices','civic & social organization','e-learning','security & investigations','chemicals','government administration','online media','investment management','farming','writing & editing','textiles','mental health care','primary/secondary education','broadcast media','biotechnology','information services','international trade & development','motion pictures & film','consumer electronics','banking','import & export','industrial automation','recreational facilities & services','performing arts','utilities','sporting goods','fine art','airlines/aviation','computer & network security','maritime','luxury goods & jewelry','veterinary','venture capital & private equity','wine & spirits','plastics','aviation & aerospace','commercial real estate','computer games','packaging & containers','executive office','computer hardware','computer networking','market research','outsourcing/offshoring','program development','translation & localization','philanthropy','public safety','alternative medicine','museums & institutions','warehousing','defense & space','newspapers','paper & forest products','law enforcement','investment banking','government relations','fund-raising','think tanks','glass, ceramics & concrete','capital markets','semiconductors','animation','political organization','package/freight delivery','wireless','international affairs','public policy','libraries','gambling & casinos','railroad manufacture','ranching','military','fishery','supermarkets','dairy','tobacco','shipbuilding','judiciary','alternative dispute resolution','nanotechnology','agriculture','legislative office' ",
+        "type_description": " You can choose this dropdown to select and type the specific industry keywords for industries to be included strictly from the following list of available keywords : 'information technology & services','construction','marketing & advertising','real estate','health, wellness & fitness','management consulting','computer software','internet','retail','financial services','consumer services','hospital & health care','automotive','restaurants','education management','food & beverages','design','hospitality','accounting','events services','nonprofit organization management','entertainment','electrical/electronic manufacturing','leisure, travel & tourism','professional training & coaching','transportation/trucking/railroad','law practice','apparel & fashion','architecture & planning','mechanical or industrial engineering','insurance','telecommunications','human resources','staffing & recruiting','sports','legal services','oil & energy','media production','machinery','wholesale','consumer goods','music','photography','medical practice','cosmetics','environmental services','graphic design','business supplies & equipment','renewables & environment','facilities services','publishing','food production','arts & crafts','building materials','civil engineering','religious institutions','public relations & communications','higher education','printing','furniture','mining & metals','logistics & supply chain','research','pharmaceuticals','individual & family services','medical devices','civic & social organization','e-learning','security & investigations','chemicals','government administration','online media','investment management','farming','writing & editing','textiles','mental health care','primary/secondary education','broadcast media','biotechnology','information services','international trade & development','motion pictures & film','consumer electronics','banking','import & export','industrial automation','recreational facilities & services','performing arts','utilities','sporting goods','fine art','airlines/aviation','computer & network security','maritime','luxury goods & jewelry','veterinary','venture capital & private equity','wine & spirits','plastics','aviation & aerospace','commercial real estate','computer games','packaging & containers','executive office','computer hardware','computer networking','market research','outsourcing/offshoring','program development','translation & localization','philanthropy','public safety','alternative medicine','museums & institutions','warehousing','defense & space','newspapers','paper & forest products','law enforcement','investment banking','government relations','fund-raising','think tanks','glass, ceramics & concrete','capital markets','semiconductors','animation','political organization','package/freight delivery','wireless','international affairs','public policy','libraries','gambling & casinos','railroad manufacture','ranching','military','fishery','supermarkets','dairy','tobacco','shipbuilding','judiciary','alternative dispute resolution','nanotechnology','agriculture','legislative office'. If and only In case of multiple keyword selection type them as a list of comma separated values like ['nano technology', 'retail'] else in case of a single keyword selection only type just the string like 'retail'",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            91
+        ]
+    },
+    "91": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Company Keywords",
+        "actionable_element_type": "button",
+        "location": [
+            26.24,
+            49.88
+        ],
+        "is_type": false,
+        "description": "Button to select specific and  additional industry/company keywords which are not present in the search industries dropdown to be included/excluded as per specified by the input mentioned as company keywords",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            92,
+            93
+        ]
+    },
+    "93": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Exclude Keywords",
+        "actionable_element_type": "button",
+        "location": [
+            26.24,
+            78.88
+        ],
+        "is_type": false,
+        "description": "Button to exclude specific industries as per specified by the user",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            94
+        ]
+    },
+    "94": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Exclude Keywords...",
+        "actionable_element_type": "dropdown",
+        "location": [
+            26.24,
+            78.88
+        ],
+        "is_type": true,
+        "description": "Button to exclude specific industries as per specified by the user",
+        "type_description": "You can type the specific industries to be excluded like Software, Agriculture, Accounting, D2C etc. as per specified by the user input as company keywords. If and only in case of multiple keywords, type them as a list of comma separated values like ['Agriculture' , 'Shopping'] else in case of a single keyword only type just the string like 'Agriculture'",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            92
+        ]
+    },
+    "92": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "e.g. Cloud, AWS",
+        "actionable_element_type": "dropdown",
+        "location": [
+            26.24,
+            49.88
+        ],
+        "is_type": true,
+        "description": "You can choose this button to include specific industries as specified by the user input. Dropdown to type and search for specific industries to be included like Software,Agriculture",
+        "type_description": " You can type the specific industries to be included like Software, Agriculture, Accounting, D2C etc. as per specified by the user input as company keywords. If and only In case of multiple keywords, type them as a list of comma separated values like ['Agriculture', 'Shopping'] else in case of a single keyword only type just the string like 'Agriculture'",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            93
+        ]
+    },
+    "11": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Company",
+        "actionable_element_type": "button",
+        "location": [
+            26.24,
+            46.79
+        ],
+        "is_type": false,
+        "description": "If Company is typed in the search filters, then the user can select the company filter to search for companies to include or exclude them.",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            14,
+            15
+        ]
+    },
+    "12": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Account Location",
+        "actionable_element_type": "button",
+        "location": [
+            23.9,
+            42.32
+        ],
+        "is_type": false,
+        "description": "If Account Location/ Location is typed in the search filter then chose this Button to select location criteria filter. After choosing this button you can type and select a location from the given options as desired by the input.",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            20
+        ]
+    },
+    "13": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "# Employees",
+        "actionable_element_type": "button",
+        "location": [
+            25.96,
+            34.02
+        ],
+        "is_type": false,
+        "description": "If Number of Employees is specified in the search filter then chose this Button to select Company Size criteria depending on Number of employees filter. After choose this button you can select from the custom range for the number of employees in the company",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            34,
+            35
+        ]
+    },
+    "21": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Technologies",
+        "actionable_element_type": "button",
+        "location": [
+            42.26,
+            42.62
+        ],
+        "is_type": false,
+        "description": "If Technologies is specified in the search filter then chose this Button to select Technologies criteria filter. After choosing this button you can type and select technologies used by the company as desired by the input.",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            24
+        ]
+    },
+    "49": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Lists",
+        "actionable_element_type": "button",
+        "location": [
+            22.76,
+            41.34
+        ],
+        "is_type": false,
+        "description": "If List/ Lists is specified in the search filter then chose this You can click on this if you want to include/exclude lists",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            50
+        ]
+    },
+    "14": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Enter Companies...",
+        "actionable_element_type": "dropdown",
+        "location": [
+            26.29,
+            53.73
+        ],
+        "is_type": true,
+        "description": "Dropdown to Type and search for the company to be included",
+        "type_description": "Type and search for the company to include.You should select this dropdown to type a company name if and ONLY if just the name of the company/companies is given by the user input. You can type the name of the company in the text field as specified by the user input. In case of multiple companies, type them as a list of comma separated values , for example, if amazon and google both are specified then type ['google', 'amazon'], else if just google is given then type 'google'",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108
+        ]
+    },
+    "15": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Include/exclude list of companies",
+        "actionable_element_type": "button",
+        "location": [
+            22.96,
+            75.8
+        ],
+        "is_type": false,
+        "description": "Type and search for companies to include. The Include/exclude list of companies button lets you apply a predefined list of companies to include or exclude in your search. You should  Select this if and only if multiple companies are specified in the objective with their urls.",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            16,
+            17
+        ]
+    },
+    "16": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Include list of companies",
+        "actionable_element_type": "textbox",
+        "location": [
+            21.9,
+            65.06
+        ],
+        "is_type": true,
+        "description": "Textbox to type and enter the list of companies to include. You should choose this button if and only in case more than one company is specified in the user input",
+        "type_description": "Textbox to type and enter the list of companies to include. You should choose this button if and only in case more than one company domain or url is specified in the user input.You can select this button in case of more than one company/domain urls is specified by the input objective. If and only In case of more than one companies urls are specified to include in the user input, type the url of the companies as a list of comma separated values. For example if google and amazon both are specified you can type ['www.google.com, www.amazon.com'], If specific URLs of the companies are not provided then search the web for the best match for the URL domain, for e.g. if Seattle Textiles is specified then search the web and input 'www.seatex.com' and so on for other companies",
+        "adjacent_from": [],
+        "adjacent_to": [
+            18
+        ]
+    },
+    "17": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Exclude list of companies",
+        "actionable_element_type": "textbox",
+        "location": [
+            22.7,
+            92.93
+        ],
+        "is_type": true,
+        "description": "Textbox to enter and type the list of companies to exclude",
+        "type_description": "In case of more than one companies are specified to be excluded from search results in the user input, you can type the url. In case of more than one companies to be excluded always type them as a list of comma separated values like ['salesforce.com', 'www.cisco.com']. Else in case of only one value type it as a string like 'www.salesforce.com' ",
+        "adjacent_from": [],
+        "adjacent_to": [
+            19
+        ]
+    },
+    "18": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Save and Search",
+        "actionable_element_type": "button",
+        "location": [
+            23.33,
+            81.39
+        ],
+        "is_type": false,
+        "description": "Button to save and search for provided list of included companies",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108
+        ]
+    },
+    "19": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Save and Search",
+        "actionable_element_type": "button",
+        "location": [
+            23.34,
+            98.63
+        ],
+        "is_type": false,
+        "description": "Button to save and search for provided list of excluded companies",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108
+        ]
+    },
+    "20": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Enter locations...",
+        "actionable_element_type": "dropdown",
+        "location": [
+            22.15,
+            50.54
+        ],
+        "is_type": true,
+        "description": "Dropdown to type and select a location as per the input",
+        "type_description": "Type the location specified by the user input. If and only In case of Multiple Locations ALWAYS type them  as a list of comma(,) separated values like ['India', 'London'] else in case of only one location type just the string like 'India'. In case abbreviated locations are specified then ALWAYS look up for the entire location or the closest match to that (for example if ND is given in the input, location should be North Dakota, OH is Ohio etc.) and so on.",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108
+        ]
+    },
+    "24": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Include Technologies...",
+        "actionable_element_type": "dropdown",
+        "location": [
+            41.01,
+            45.46
+        ],
+        "is_type": true,
+        "description": "Dropdown/textbox to select technologies used by the company criteria",
+        "type_description": "You can type and select the technologies used by the company as per the input like shopify, wordpress, magento, etc.If and only in case of Multiple technologies ALWAYS type them as a list of comma separated values like ['shopify', 'wordpress'] else in case of only one technology just type the string like 'shopify'.",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108
+        ]
+    },
+    "25": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Revenue",
+        "actionable_element_type": "button",
+        "location": [
+            23.03,
+            42.73
+        ],
+        "is_type": false,
+        "description": "Button to select the revenue criteria for companies",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            26
+        ]
+    },
+    "26": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Is between",
+        "actionable_element_type": "button",
+        "location": [
+            20.46,
+            55.13
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to input the minimum and maximum ranges for the revenue for company",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            29
+        ]
+    },
+    "29": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Min",
+        "actionable_element_type": "textbox",
+        "location": [
+            22.13,
+            61.13
+        ],
+        "is_type": true,
+        "description": "You can type/select Minimum revenue in Millions",
+        "type_description": "You can type numerical value of Minimum revenue in Millions, Do not type $ or M, just the numerical value. If nothing is specified in the min value then skip and do not type anything. Else Input the required amount as per the user input.",
+        "adjacent_from": [],
+        "adjacent_to": [
+            30
+        ]
+    },
+    "30": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Max",
+        "actionable_element_type": "textbox",
+        "location": [
+            30.13,
+            61.13
+        ],
+        "is_type": true,
+        "description": "You can type/select Maximum revenue in Millions",
+        "type_description": "You can type numerical value of Maximum revenue in Millions, Do not type $ or M, just the numerical value. If nothing is specified in the max value then skip and do not type anything. Else Input the required amount as per the user input.",
+        "adjacent_from": [],
+        "adjacent_to": [
+            31,
+            32,
+            9,
+            108
+        ]
+    },
+    "27": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Is known",
+        "actionable_element_type": "button",
+        "location": [
+            26.46,
+            55.13
+        ],
+        "is_type": false,
+        "description": "You can click on this if the revenue of the company is known in Millions",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            31,
+            32
+        ]
+    },
+    "28": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Is unknown",
+        "actionable_element_type": "button",
+        "location": [
+            31.22,
+            55.13
+        ],
+        "is_type": false,
+        "description": "You can click on this if the revenue of the company is not known",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            31,
+            32
+        ]
+    },
+    "31": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Public Company",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            51.13
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select Public company",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108
+        ]
+    },
+    "32": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Private Company",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            53.13
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select Private company",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108
+        ]
+    },
+    "33": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Predefined Range",
+        "actionable_element_type": "checkbox",
+        "location": [
+            22.03,
+            45.85
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select from among the predefined range for number of employees. You can either select a single predefined range or a combination of many ranges",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48
+        ]
+    },
+    "34": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Custom Range",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            79.13
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select custom range for number of employees",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            36
+        ]
+    },
+    "35": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "# of Employees is unknown",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            84.13
+        ],
+        "is_type": false,
+        "description": "You can click on this if the number of employees in the company are unknown",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108
+        ]
+    },
+    "36": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Min",
+        "actionable_element_type": "textbox",
+        "location": [
+            19.46,
+            53.13
+        ],
+        "is_type": true,
+        "description": "Textbox to type a numeric value for the minimum number of employees in the company",
+        "type_description": "You can type Minimum number of employees in numeric value. If nothing in lower limit/minimum value is specified, then do not type anything and proceed. Else Input the specified amount as per the user input.",
+        "adjacent_from": [],
+        "adjacent_to": [
+            37
+        ]
+    },
+    "37": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Max",
+        "actionable_element_type": "textbox",
+        "location": [
+            26.46,
+            53.13
+        ],
+        "is_type": true,
+        "description": "Textbox to type a numeric value for the maximum number of employees in the company",
+        "type_description": "You can type maximum number of employees in numeric value. If nothing in upper limit/maximum value is specified, then do not type anything and proceed. Else Input the specified amount as per the user input.",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108
+        ]
+    },
+    "38": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "1-10",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            49.34
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select number of employees between 1 to 10, which means more than 0 and less than 11",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48
+        ]
+    },
+    "39": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "11-20",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            51.34
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select number of employees between 11 to 20 which means more than 10 and less than 21",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            38,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48
+        ]
+    },
+    "40": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "21-50",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            53.34
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select number of employees between 21 to 50 which means more than 20 and less than 51",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            38,
+            39,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48
+        ]
+    },
+    "41": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "51-100",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            56.34
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select number of employees between 51 to 100 which means more than 50 and less than 101",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            38,
+            39,
+            40,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48
+        ]
+    },
+    "42": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "101-200",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            60.34
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select number of employees between 101 to 200 which means more than 100 and less than 201",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            38,
+            39,
+            40,
+            41,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48
+        ]
+    },
+    "43": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "201-500",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            62.34
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select number of employees between 201 to 500 which more than 200 and less than 501",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            38,
+            39,
+            40,
+            41,
+            42,
+            44,
+            45,
+            46,
+            47,
+            48
+        ]
+    },
+    "44": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "501-1000",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            65.34
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select number of employees between 501 to 1000 which means more than 500 and less than 1001",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            45,
+            46,
+            47,
+            48
+        ]
+    },
+    "45": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "1001-2000",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            67.34
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select number of employees between 1001 to 2000 which means more than 1000 and less than 2001",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            46,
+            47,
+            48
+        ]
+    },
+    "46": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "2001-5000",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            70.34
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select number of employees between 2001 to 5000 which means more than 2000 and less than 5001",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            47,
+            48
+        ]
+    },
+    "47": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "5001-10000",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            73.34
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select number of employees between 5001 to 10000 which means more than 5000 and less than 10001",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            48
+        ]
+    },
+    "48": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "10001+",
+        "actionable_element_type": "checkbox",
+        "location": [
+            23.46,
+            75.34
+        ],
+        "is_type": false,
+        "description": "You can click on this if you want to select number of employees more than 10001",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+        ]
+    },
+    "50": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Select lists...",
+        "actionable_element_type": "textbox",
+        "location": [
+            22.76,
+            47.34
+        ],
+        "is_type": true,
+        "description": "Textbox to type and select lists",
+        "type_description": "You can type the lists as per the user input",
+        "adjacent_from": [],
+        "adjacent_to": [
+            9,
+            108
+        ]
+    },
+    "52": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Time Zone",
+        "actionable_element_type": "button",
+        "location": [
+            41.79,
+            42.24
+        ],
+        "is_type": false,
+        "description": "Button to select time zone filter for individuals/people",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            56
+        ]
+    },
+    "53": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Job Titles",
+        "actionable_element_type": "button",
+        "location": [
+            24.34,
+            33.09
+        ],
+        "is_type": false,
+        "description": "Button to select Job Titles filter for individuals/people",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            63
+        ]
+    },
+    "54": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Total years of Experience",
+        "actionable_element_type": "button",
+        "location": [
+            24.34,
+            42.09
+        ],
+        "is_type": false,
+        "description": "Button to select total years of experience filter for individuals/people",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            66,
+            67
+        ]
+    },
+    "55": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Email status",
+        "actionable_element_type": "button",
+        "location": [
+            24.34,
+            42.09
+        ],
+        "is_type": false,
+        "description": "Button to select email engagement status for individual/people",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            57,
+            58,
+            59,
+            60,
+            61
+        ]
+    },
+    "56": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Specify a Time Zone...",
+        "actionable_element_type": "textbox",
+        "location": [
+            43.34,
+            45.09
+        ],
+        "is_type": true,
+        "description": "Textbox to enter timezone in GMT + HH:MM format",
+        "type_description": "You can type the value of the time zone. The format of the timezone should be in GMT +HH:MM/ GMT -HH:MM format. For example GMT +10:00, GMT -5:30 and GMT -1:19. Input the required amount as per the user input. In case of multiple time zones, always type them as a list of comma separated values like ['GMT +10:00', 'GMT -5:30'] else in case of a single time zone only type just the string like 'GMT +10:00'",
+        "adjacent_from": [],
+        "adjacent_to": [
+            51,
+            10
+        ]
+    },
+    "57": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Likely to engage",
+        "actionable_element_type": "checkbox",
+        "location": [
+            22.34,
+            47.09
+        ],
+        "is_type": false,
+        "description": "Click Checkbox to select people with emails which are frequently active and likely to engage ",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            51,
+            10
+        ]
+    },
+    "58": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Verified",
+        "actionable_element_type": "checkbox",
+        "location": [
+            22.34,
+            50.09
+        ],
+        "is_type": false,
+        "description": "Click Checkbox to select people with emails which are valid and verified",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            51,
+            10
+        ]
+    },
+    "59": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Unverified",
+        "actionable_element_type": "checkbox",
+        "location": [
+            22.34,
+            57.09
+        ],
+        "is_type": false,
+        "description": "Click Checkbox to select people with emails that are unverified which may have been updated otherwise",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            51,
+            10
+        ]
+    },
+    "60": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Update required",
+        "actionable_element_type": "checkbox",
+        "location": [
+            22.34,
+            64.09
+        ],
+        "is_type": false,
+        "description": "Click Checkbox to select people with emails which are no longer valid",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            51,
+            10
+        ]
+    },
+    "61": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Unavailable",
+        "actionable_element_type": "checkbox",
+        "location": [
+            22.34,
+            67.09
+        ],
+        "is_type": false,
+        "description": "Click Checkbox to select people with unavailable email address",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            51,
+            10
+        ]
+    },
+    "62": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Is any of",
+        "actionable_element_type": "checkbox",
+        "location": [
+            22.34,
+            67.09
+        ],
+        "is_type": false,
+        "description": "Click Checkbox to select people with a specific job title from the list : 'manager', 'project manager',teacher', 'owner', 'student', 'director', 'software engineer', 'consultant', 'account manger', 'engineer', 'professor', 'sales manager', 'sales', 'partner', 'associate', 'president', 'administrative assistant', 'supervisor', 'general manager', 'realtor' ",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            63
+        ]
+    },
+    "63": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Search for a job title",
+        "actionable_element_type": "textbox",
+        "location": [
+            24.34,
+            49.09
+        ],
+        "is_type": true,
+        "description": "Textbox to type/select either of the job titles : 'manager', 'project manager',teacher', 'owner', 'student', 'director', 'software engineer', 'consultant', 'account manger', 'engineer', 'professor', 'sales manager', 'sales', 'partner', 'associate', 'president', 'administrative assistant', 'supervisor', 'general manager', 'realtor'",
+        "type_description": "You can type the job title as per the objective given. If and only In case of multiple job titles type them as a list of comma seperated values like ['manager', 'accountant'] else if in case of one job title type it as a string like 'Manager'",
+        "adjacent_from": [],
+        "adjacent_to": [
+            51,
+            10
+        ]
+    },
+    "64": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Is known",
+        "actionable_element_type": "checkbox",
+        "location": [
+            24.34,
+            54.09
+        ],
+        "is_type": false,
+        "description": "Click Checkbox to select people if the job title is known but not specific",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            51,
+            10
+        ]
+    },
+    "65": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Is unknown",
+        "actionable_element_type": "checkbox",
+        "location": [
+            24.34,
+            66.09
+        ],
+        "is_type": false,
+        "description": "Click Checkbox to select people if the job title is not known",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            51,
+            10
+        ]
+    },
+    "66": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Min year",
+        "actionable_element_type": "textbox",
+        "location": [
+            19.34,
+            46.09
+        ],
+        "is_type": true,
+        "description": "Type a numeric value for minimum experience in years ",
+        "type_description": "You can type a numeric value for the minimum number of experience in years",
+        "adjacent_from": [],
+        "adjacent_to": [
+            51,
+            10,
+            67
+        ]
+    },
+    "67": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Max year",
+        "actionable_element_type": "textbox",
+        "location": [
+            26.78,
+            46.09
+        ],
+        "is_type": true,
+        "description": "Type a numeric value for maximum experience in years ",
+        "type_description": "You can type a numeric value for the maximum number of experience in years",
+        "adjacent_from": [],
+        "adjacent_to": [
+            51,
+            10
+        ]
+    },
+    "68": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Hide filters",
+        "actionable_element_type": "button",
+        "location": [
+            43.78,
+            26.09
+        ],
+        "is_type": false,
+        "description": "If Applying all the filters from the people tab is done, then you can click on this button to view the results and proceed to export the result. ONLY Choose this button after applying all filters when coming from People tab directly",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            69
+        ]
+    },
+    "103": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Hide filters",
+        "actionable_element_type": "button",
+        "location": [
+            43.78,
+            26.09
+        ],
+        "is_type": false,
+        "description": "If Applying all the filters from companies tab is done, then you can click on this button to view the results and proceed to export the result. ONLY Choose this button after applying all filters when coming from Companies tab directly",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            104
+        ]
+    },
+    "69": {
+        "node_type": "clickable_and_typeable",
+        "node_name": " ",
+        "actionable_element_type": "select-all",
+        "location": [
+            15.24,
+            31.14
+        ],
+        "is_type": false,
+        "description": "Select all button",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            70,
+            100
+        ]
+    },
+    "104": {
+        "node_type": "clickable_and_typeable",
+        "node_name": " ",
+        "actionable_element_type": "select-all",
+        "location": [
+            15.24,
+            31.14
+        ],
+        "is_type": false,
+        "description": "Select all button",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            105,
+            106
+        ]
+    },
+    "70": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "select this page",
+        "actionable_element_type": "button",
+        "location": [
+            14.78,
+            38.09
+        ],
+        "is_type": false,
+        "description": "Button to select the results of applied filter on the page. You can choose this button to select all the results on the page if and only if the number of results to export is not specified in the objective. The default selection includes 25 results to export. For anything other than 25, never select this button.",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            71
+        ]
+    },
+    "100": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "25",
+        "actionable_element_type": "dropdown",
+        "location": [
+            19.78,
+            47.09
+        ],
+        "is_type": true,
+        "description": "Button to select and input the custom value for number of results on the page to export. You should ALWAYS choose this dropdown to input the custom number of results to export as per the specified in the objective. For e.g, if the objective asks to export 15 results (like prospects/leads/contacts) then always select this dropdown to input the custom number of results to be exported and type that value",
+        "type_description": "You can select this dropdown and type the specific value for the number of results to export on the page as per the input objective. The default value is 25 results. For e.g if the objective requires to export 100 leads then type 100",
+        "adjacent_from": [],
+        "adjacent_to": [
+            101
+        ]
+    },
+    "106": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "select this page",
+        "actionable_element_type": "button",
+        "location": [
+            14.78,
+            38.09
+        ],
+        "is_type": false,
+        "description": "Button to select the results of applied filter on the page. You can choose this button to select all the results on the page if and only if the number of results to export is not specified in the objective. The default selection includes 25 results to export. For anything other than 25, never select this button.",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            107
+        ]
+    },
+    "105": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "25",
+        "actionable_element_type": "textbox",
+        "location": [
+            19.78,
+            47.09
+        ],
+        "is_type": true,
+        "description": "Button to select and input the custom value for number of results on the page to export. You should ALWAYS choose this dropdown to input the custom number of results to export as per the objective. For e.g, if the objective asks to export 15 results (like prospects/leads/contacts) then always select this dropdown to input the custom number of results to be exported and type that value",
+        "type_description": "You can select this dropdown and type the specific value for the number of results to export on the page as per the input objective. The default value is 25 results. For e.g if the objective requires to export 100 leads then type 100",
+        "adjacent_from": [],
+        "adjacent_to": [
+            102
+        ]
+    },
+    "101": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Apply selection",
+        "actionable_element_type": "button",
+        "location": [
+            12.78,
+            60.09
+        ],
+        "is_type": false,
+        "description": "Button to confirm selection of custom number of results to export selected records to CSV when choosing custom exports from People Tab. You should select this button after inputting the custom value for number of results to export for People. You should choose this button if you are exporting results from people tab",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            71
+        ]
+    },
+    "102": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Apply",
+        "actionable_element_type": "button",
+        "location": [
+            12.78,
+            60.09
+        ],
+        "is_type": false,
+        "description": "Button to confirm selection of custom number of results to export selected records to CSV when choosing custom exports from Companies tab. You should select this button after inputting the custom value for number of results to export for Companies. You should choose this button if you are exporting results from companies tab",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            107
+        ]
+    },
+    "71": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Export",
+        "actionable_element_type": "button",
+        "location": [
+            51.78,
+            30.09
+        ],
+        "is_type": false,
+        "description": "Button to Export selected records to CSV",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            72
+        ]
+    },
+    "107": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Export",
+        "actionable_element_type": "button",
+        "location": [
+            51.78,
+            30.09
+        ],
+        "is_type": false,
+        "description": "Button to Export selected records to CSV",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [
+            98
+        ]
+    },
+    "72": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "save",
+        "actionable_element_type": "button",
+        "location": [
+            65.78,
+            88.09
+        ],
+        "is_type": false,
+        "description": "You can choose this button to save and export the records when exporting results directly from Peoples tab. Always choose this button when coming directly from people tab to export contact leads for peoples ",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [99]
+    },
+    "98": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Export records",
+        "actionable_element_type": "button",
+        "location": [
+            61.78,
+            60.09
+        ],
+        "is_type": false,
+        "description": "You can choose this button to save and export the records when exporting results directly from companies tab. Always choose this button when coming directly from companies tab to export prospects for businesses/companies ",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": [99]
+    },
+    "99": {
+        "node_type": "navigation",
+        "node_name": "download-navigation",
+        "url": "https://app.apollo.io/#/settings/imports-and-exports/exports",
+        "description": "You can choose this to navigate to the download link for CSV records",
+        "adjacent_from": [],
+        "adjacent_to": [
+            109
+        ]
+    },
+    "109": {
+        "node_type": "download",
+        "node_name": "",
+        "actionable_element_type": "download-icon",
+        "location": [
+            95.62,
+            18.21
+        ],
+        "is_type": false,
+        "description": "You can choose this button to download the csv file for the exported results",
+        "type_description": "",
+        "adjacent_from": [],
+        "adjacent_to": []
+    }
+}
