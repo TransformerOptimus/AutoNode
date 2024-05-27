@@ -1,0 +1,82 @@
+version: '3.8'
+services:
+  backend:
+    volumes:
+      - "./:/app"
+    build:
+      context: autonode
+      target: development
+    networks:
+      - verk_network
+    entrypoint: ["autonode/entrypoint.sh"]
+    ports:
+      - "8001:8001"
+
+  yolo:
+    volumes:
+      - "./:/app"
+    build:
+      context: yolo
+      target: development
+    networks:
+      - verk_network
+    command: gunicorn --workers 4 --worker-class uvicorn.workers.UvicornWorker yolo.app:app --bind 0.0.0.0:8001 --timeout 240
+    ports:
+      - "8002:8001"
+
+  ocr:
+    volumes:
+      - "./:/app"
+    build:
+      context: ocr
+      target: development
+    networks:
+      - verk_network
+    command: gunicorn --workers 4 --worker-class uvicorn.workers.UvicornWorker ocr.app:app --bind 0.0.0.0:8001 --timeout 240
+    ports:
+      - "8003:8001"
+
+  postgres:
+    image: "docker.io/library/postgres:15"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=autonode
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - verk_network
+    ports:
+      - "5432:5432"  # Uncommented to expose Postgres port to host
+
+  celery:
+    volumes:
+      - "./:/app"
+    build:
+      context: autonode
+      target: development
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - verk_network
+    deploy:
+      replicas: 1
+    entrypoint: ["celery", "-A", "autonode.worker", "worker", "--loglevel=info"]
+
+  redis:
+    image: "redis/redis-stack-server:latest"
+    networks:
+      - verk_network
+    # ports:
+    #   - "6379:6379"  # Uncommented to expose Redis port to host
+    volumes:
+      - redis_data:/data
+
+networks:
+  verk_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
