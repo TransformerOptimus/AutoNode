@@ -80,7 +80,7 @@ def initiate_autonode(
 
     except Exception as e:
         Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.FAILED.value)
-        logger.error(f"Error: {str(e)}, traceback : {traceback.print_exc()}")
+        logger.error(f"Error while running autonode for request_id: {request_id}: {str(e)}")
 
     finally:
         # Comment if you don't want to delete screenshots locally
