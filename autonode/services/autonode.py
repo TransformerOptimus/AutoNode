@@ -91,7 +91,7 @@ class AutonodeService(ABC):
 
             except Exception as e:
                 logger.error(f"Error in running the Node: {self.curr_graph_node.node_name} - {e}")
-                raise Exception(f"Error in running the Node - {self.curr_graph_node.node_name}")
+                raise e
             self.actions_taken.append(self.curr_graph_node.actions_taken())
             steps += 1
             if not self._traverse():
