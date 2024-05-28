@@ -6,6 +6,7 @@ from autonode.config.config import get_config
 from autonode.llms.open_ai import OpenAi
 from autonode.nodes.base_node import Node
 from autonode.factories.node_factory import NodeFactory
+from autonode.utils.exceptions.llm_objective_exception import LLMObjectiveException
 from autonode.utils.helpers.prompt_helper import format_planning_prompt
 from autonode.logger.logger import logger
 
@@ -81,8 +82,7 @@ class PlanningNode(Node):
         )
 
         if autonode_object.objective is None:
-            logger.error(f"Objective is None for request_id: {request_id}. Retry the request.")
-            raise Exception(f"Objective is None for request_id: {request_id}. Retry the request.")
+            raise LLMObjectiveException(request_id=request_id)
 
         self.update_action_in_db(
             session=db_session, request_id=request_id, prompt=prompt, llm_response=llm_response

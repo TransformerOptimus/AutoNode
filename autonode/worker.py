@@ -12,7 +12,10 @@ from sqlalchemy.orm import sessionmaker
 from asgi_correlation_id.extensions.celery import load_correlation_ids
 
 from autonode.models.requests import Requests
+from autonode.utils.decorators.retry_decorator import retry
 from autonode.utils.enums.request_status import RequestStatus
+from autonode.utils.exceptions.element_not_found_exception import ElementNotFoundException
+from autonode.utils.exceptions.llm_objective_exception import LLMObjectiveException
 
 load_dotenv()
 REDIS_URL = os.getenv("REDIS_URL")
@@ -58,6 +61,7 @@ load_correlation_ids()
 
 
 @celery_app.task
+@retry(max_attempts=3, backoff=0, exceptions=(ElementNotFoundException, LLMObjectiveException))
 def initiate_autonode(
         objective: str,
         screenshots_dir: str,
@@ -73,9 +77,11 @@ def initiate_autonode(
             objective=objective, graph_path=graph_path, root_node=root_node
         )
         driver.run(session=session, request_id=request_id, url=url, request_dir=screenshots_dir)
+
     except Exception as e:
         Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.FAILED.value)
         logger.error(f"Error: {str(e)}, traceback : {traceback.print_exc()}")
+
     finally:
         # Comment if you don't want to delete screenshots locally
         if os.path.exists(screenshots_dir):
