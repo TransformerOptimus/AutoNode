@@ -1,16 +1,12 @@
 import os
 import shutil
-import traceback
-
-from autonode.logger.logger import logger
-# import logger
-from autonode.services.autonode import AutonodeService
 from celery import Celery
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from asgi_correlation_id.extensions.celery import load_correlation_ids
-
+from autonode.logger.logger import logger
+from autonode.services.autonode import AutonodeService
 from autonode.models.requests import Requests
 from autonode.utils.decorators.retry_decorator import retry
 from autonode.utils.enums.request_status import RequestStatus

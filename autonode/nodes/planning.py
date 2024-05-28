@@ -73,13 +73,8 @@ class PlanningNode(Node):
         """
         logger.info(f"Running Planning Node: {self.node_name} for request_id: {request_id}")
         planning_agent = PlanningAgent(llm_instance=self.llm_4o)
-        autonode_object.objective = format_planning_prompt(
-            planning_agent.execute(objective=objective)
-        )
-
-        logger.info(
-            f"Objective for the request_id: {request_id} is: {autonode_object.objective}"
-        )
+        autonode_object.objective = format_planning_prompt(planning_agent.execute(objective=objective))
+        logger.info(f"Objective for the request_id: {request_id} is: {autonode_object.objective}")
 
         if autonode_object.objective is None:
             raise LLMObjectiveException(request_id=request_id)

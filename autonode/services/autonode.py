@@ -15,7 +15,6 @@ from autonode.models.requests import Requests
 from autonode.utils.enums.request_status import RequestStatus
 from autonode.utils.exceptions.element_not_found_exception import ElementNotFoundException
 from autonode.utils.exceptions.llm_objective_exception import LLMObjectiveException
-from autonode.utils.helpers.s3_helper import S3Helper
 
 
 class AutonodeService(ABC):
@@ -45,10 +44,27 @@ class AutonodeService(ABC):
         self.prompt = ""
         self.response = ""
 
+    def run(self, session: Session, request_id: int, request_dir: str, url: str):
+        try:
+            Requests.update_request_status(session=session, request_id=request_id,
+                                           status=RequestStatus.IN_PROGRESS.value)
+            self._setup_directories(request_id=request_id, request_dir=request_dir)
+            self._initialise(url=url)
+            self._run(session=session, request_id=request_id, request_dir=request_dir)
+            Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.COMPLETED.value)
+
+        except Exception as e:
+            Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.FAILED.value)
+            logger.error(f"Error in executing the objective for request id {request_id}: {e}")
+
+        finally:
+            if self.web_automator:
+                self.loop.run_until_complete(self.web_automator.stop_trace(request_dir))
+                self.loop.run_until_complete(self.web_automator.close_browser())
+
     def _run(self, session: Session, request_id: int, request_dir: str):
         steps = 0
         logger.info(f"Running Node : {self.curr_graph_node} {request_id}")
-        # Initialising the graph
         time.sleep(3)
         while True:
             try:
@@ -61,7 +77,7 @@ class AutonodeService(ABC):
                     previous_node=self.prev_graph_node,
                     db_session=session,
                     # Pass self.s3_client If you have AWS account and want to store result in your AWS S3
-                    s3_client=self.s3_client,
+                    s3_client=None,
                     request_id=request_id,
                     request_dir=request_dir,
                     prompt=self.prompt,
@@ -80,22 +96,6 @@ class AutonodeService(ABC):
             steps += 1
             if not self._traverse():
                 break
-
-    def run(self, session: Session, request_id: int, request_dir: str, url: str):
-        try:
-            Requests.update_request_status(session=session, request_id=request_id,
-                                           status=RequestStatus.IN_PROGRESS.value)
-            self._setup_directories(request_id=request_id, request_dir=request_dir)
-            self._initialise(url=url)
-            self._run(session=session, request_id=request_id, request_dir=request_dir)
-            Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.COMPLETED.value)
-        except Exception as e:
-            Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.FAILED.value)
-            logger.error(f"Error in executing the objective for request id {request_id}: {e}")
-        finally:
-            if self.web_automator:
-                self.loop.run_until_complete(self.web_automator.stop_trace(request_dir))
-                self.loop.run_until_complete(self.web_automator.close_browser())
 
     def _setup_directories(self, request_id: int, request_dir: str):
         self.cropped_image_folder = os.path.join("cropped_image", str(request_id))
