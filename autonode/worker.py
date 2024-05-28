@@ -8,10 +8,7 @@ from asgi_correlation_id.extensions.celery import load_correlation_ids
 from autonode.logger.logger import logger
 from autonode.services.autonode import AutonodeService
 from autonode.models.requests import Requests
-from autonode.utils.decorators.retry_decorator import retry
 from autonode.utils.enums.request_status import RequestStatus
-from autonode.utils.exceptions.element_not_found_exception import ElementNotFoundException
-from autonode.utils.exceptions.llm_objective_exception import LLMObjectiveException
 
 load_dotenv()
 REDIS_URL = os.getenv("REDIS_URL")
@@ -57,7 +54,6 @@ load_correlation_ids()
 
 
 @celery_app.task
-@retry(max_attempts=3, backoff=0, exceptions=(ElementNotFoundException, LLMObjectiveException))
 def initiate_autonode(
         objective: str,
         screenshots_dir: str,

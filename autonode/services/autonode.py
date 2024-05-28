@@ -12,6 +12,7 @@ from autonode.agents.traversal_agent import TraversalAgent
 from autonode.services.graph import Graph
 from autonode.services.web_automation import WebAutomationService
 from autonode.models.requests import Requests
+from autonode.utils.decorators.retry_decorator import retry
 from autonode.utils.enums.request_status import RequestStatus
 from autonode.utils.exceptions.element_not_found_exception import ElementNotFoundException
 from autonode.utils.exceptions.llm_objective_exception import LLMObjectiveException
@@ -44,6 +45,7 @@ class AutonodeService(ABC):
         self.prompt = ""
         self.response = ""
 
+    @retry(max_attempts=3, backoff=0, exceptions=(ElementNotFoundException, LLMObjectiveException))
     def run(self, session: Session, request_id: int, request_dir: str, url: str):
         try:
             Requests.update_request_status(session=session, request_id=request_id,
