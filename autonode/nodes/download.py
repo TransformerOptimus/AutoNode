@@ -16,10 +16,12 @@ class DownloadNode(ClickableAndTypeableNode):
     def run(self, steps, history, objective, web_automater, db_session, s3_client, request_id, request_dir, prompt,
             llm_response, loop, previous_node, **kwargs):
         try:
-            time.sleep(10)
+            time.sleep(120)
             self.loop = loop
+            self.loop.run_until_complete(web_automater.page.reload())
 
-            logger.info(f"Download Node initiated for request_id: {request_id}")
+            logger.info(f"Download Node initiated for request_id: {request_id}."
+                        f" It might take 10-15 minutes to complete.")
 
             self.screenshot_filename, self.screenshot_id = ScreenshotGenerator().run(
                 db_session, s3_client, web_automater, steps, request_id, request_dir, self.loop

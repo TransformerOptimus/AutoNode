@@ -3,7 +3,6 @@ from fastapi import APIRouter
 from autonode.logger.logger import logger
 from autonode.models.requests import Requests
 from autonode.models.types.requests.initiate_autonode import InitiateAutoNodeRequest
-from autonode.services.autonode import AutonodeService
 from autonode.utils.helpers.naming_helper import NamingHelper
 
 router = APIRouter()

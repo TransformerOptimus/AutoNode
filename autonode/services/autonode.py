@@ -58,6 +58,7 @@ class AutonodeService(ABC):
         except Exception as e:
             Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.FAILED.value)
             logger.error(f"Error in executing the objective for request id {request_id}: {e}")
+            raise e
 
         finally:
             if self.web_automator:
@@ -87,9 +88,6 @@ class AutonodeService(ABC):
                     loop=self.loop,
                     llm_instance=self.llm,
                 )
-
-            except (ElementNotFoundException, LLMObjectiveException) as e:
-                raise e
 
             except Exception as e:
                 logger.error(f"Error in running the Node: {self.curr_graph_node.node_name} - {e}")
