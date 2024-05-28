@@ -28,7 +28,7 @@ class WebAutomationService:
 
     async def download_on_click(self, location: list, download_path: str):
         time.sleep(2)
-        async with self.page.expect_download(timeout=600_000) as download_info:
+        async with self.page.expect_download(timeout=300_000) as download_info:
             await self.click_on_page(location)
         download = await download_info.value
         await download.save_as(download_path)
