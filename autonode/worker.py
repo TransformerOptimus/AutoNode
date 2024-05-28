@@ -1,16 +1,12 @@
 import os
 import shutil
-import traceback
-
-from autonode.logger.logger import logger
-# import logger
-from autonode.services.autonode import AutonodeService
 from celery import Celery
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from asgi_correlation_id.extensions.celery import load_correlation_ids
-
+from autonode.logger.logger import logger
+from autonode.services.autonode import AutonodeService
 from autonode.models.requests import Requests
 from autonode.utils.enums.request_status import RequestStatus
 
@@ -73,10 +69,13 @@ def initiate_autonode(
             objective=objective, graph_path=graph_path, root_node=root_node
         )
         driver.run(session=session, request_id=request_id, url=url, request_dir=screenshots_dir)
+
     except Exception as e:
         Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.FAILED.value)
-        logger.error(f"Error: {str(e)}, traceback : {traceback.print_exc()}")
+        logger.error(f"Error while running autonode for request_id: {request_id}: {str(e)}")
+
     finally:
+        # Comment if you don't want to delete screenshots locally
         if os.path.exists(screenshots_dir):
             logger.info(f"Deleting request directory {screenshots_dir}")
             shutil.rmtree(screenshots_dir)

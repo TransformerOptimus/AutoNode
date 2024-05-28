@@ -14,7 +14,8 @@ class ScreenshotGenerator:
         screenshot_filename = os.path.join(request_dir, screenshot_filename)
         loop.run_until_complete(web_automator.take_screenshot(screenshot_filename))
 
-        s3_client.upload_file(file_path=screenshot_filename)
+        # Uncomment If you have aws account and want to store result in your AWS S3
+        # s3_client.upload_file(file_path=screenshot_filename)
         screenshot_store = Files.add_file(
             session=db_session,
             request_id=request_id,

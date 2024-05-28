@@ -5,6 +5,8 @@ from PIL import Image
 from sahi import AutoDetectionModel
 from sahi.predict import get_sliced_prediction
 from ultralytics import YOLO
+
+from autonode.logger.logger import logger
 from yolo.yolo.configs.settings import YoloConfig as config
 from yolo.yolo.enums.model_type import ModelType
 from numpy import asarray
@@ -67,7 +69,6 @@ class ModelService:
         return boxes, bbox_class_names
 
     def _remote_predict(self, image: bytes):
-        print("Remote Prediction")
         """Function to predict the bounding boxes of the  from a remote gpu service
 
         Args:
@@ -89,7 +90,7 @@ class ModelService:
 
         response = requests.post(config.yolo_remote_url, headers=headers, json=payload)
         result = response.json()
-        print(f"Remote Prediction {result}")
+        logger.info(f"Yolo Remote Prediction Result {result}")
         return result['received_data']
 
     def _image_to_base64(self, image):

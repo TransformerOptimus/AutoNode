@@ -10,8 +10,8 @@ class OcrConfig:
     gpu = os.getenv('OCR_GPU', 'TRUE') == 'TRUE'
     languages = os.getenv('OCR_LANGUAGES', 'en').split(',')
 
-    use_remote_service = os.getenv('USE_REMOTE_OCR', True)
-    ocr_remote_url = os.getenv('OCR_REMOTE_URL', 'https://5ka17629fhl3ey-8000.proxy.runpod.net/ocr')
+    use_remote_service = os.getenv('USE_REMOTE_OCR', False)
+    ocr_remote_url = os.getenv('OCR_REMOTE_URL', '<OCR_REMOTE_URL>')
 
     base_image_path = os.getenv('BASE_IMAGE_PATH', 'gpu_service_images/')
     easyocr_image_decoder = os.getenv('EASYOCR_IMAGE_DECODER', 'beamsearch')

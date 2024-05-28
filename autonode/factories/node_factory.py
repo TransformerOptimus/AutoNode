@@ -45,7 +45,6 @@ class NodeFactory:
             ValueError: If the node type is not registered.
         """
         node_class = cls._registry.get(node_type)
-        print(f"REGISTRY - {cls._registry}")
         if not node_class:
             raise ValueError(f"Node type '{node_type}' is not registered.")
         # TODO: Sanity Check before creating the node. Check if all the required arguments are passed.

@@ -8,8 +8,8 @@ load_dotenv()
 class YoloConfig:
     environment = os.getenv('APP_ENV', 'DEV').upper()
 
-    use_remote_service = os.getenv('USE_REMOTE_YOLO', True)
-    yolo_remote_url = os.getenv('YOLO_REMOTE_URL', 'https://5ka17629fhl3ey-8000.proxy.runpod.net/yolo')
+    use_remote_service = os.getenv('USE_REMOTE_YOLO', False)
+    yolo_remote_url = os.getenv('YOLO_REMOTE_URL', '<YOLO_REMOTE_URL>')
 
     sahi_model_type = os.getenv('SAHI_MODEL_TYPE', 'yolov8')
     sahi_model_path = os.getenv('SAHI_MODEL_PATH', 'yolo/web_detection_models/image_model.pt')

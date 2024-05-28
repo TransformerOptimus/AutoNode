@@ -27,7 +27,6 @@ class OCRService:
                 data["ocr_result"] = None
         except Exception as e:
             data["ocr_result"] = None
-            traceback.print_exc()
             logger.error(f"Error in ocr_image : {e}")
 
     def concatenate_all_text(self, ocred_data):

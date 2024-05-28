@@ -25,7 +25,6 @@ class Graph:
                 **value
             )
             graph_dict[key] = node
-            print(f"Graph - {graph_dict}")
         return graph_dict
 
     def __repr__(self):

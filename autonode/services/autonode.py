@@ -12,30 +12,29 @@ from autonode.agents.traversal_agent import TraversalAgent
 from autonode.services.graph import Graph
 from autonode.services.web_automation import WebAutomationService
 from autonode.models.requests import Requests
+from autonode.utils.decorators.retry_decorator import retry
 from autonode.utils.enums.request_status import RequestStatus
-from autonode.utils.helpers.s3_helper import S3Helper
+from autonode.utils.exceptions.element_not_found_exception import ElementNotFoundException
+from autonode.utils.exceptions.llm_objective_exception import LLMObjectiveException
 
 
 class AutonodeService(ABC):
 
     def __init__(self, objective, graph_path, root_node="1") -> None:
-        self.llm = OpenAi(api_key=os.getenv("OPENAI_API_KEY"),
-                          model=get_config("GPT_4_0125_PREVIEW_VERSION"),
-                          temperature=random.uniform(0.0, 0.2),
-                          top_p=random.uniform(0.9, 0.99),
-                          presence_penalty=1,
-                          frequency_penalty=1)
+        self.llm = OpenAi(api_key=os.getenv("OPENAI_API_KEY"), model=get_config("GPT_4_0125_PREVIEW_VERSION"),
+                          temperature=random.uniform(0.0, 0.2), top_p=random.uniform(0.9, 0.99),
+                          presence_penalty=1, frequency_penalty=1)
         self.objective = objective
         self.graph_path = graph_path
         self.root_node = root_node
-
         self.config = Settings()
-        self.s3_client = S3Helper(access_key=self.config.AWS_ACCESS_KEY_ID,
-                                  secret_key=self.config.AWS_SECRET_ACCESS_KEY,
-                                  bucket_name=self.config.bucket_name)
-
         self.loop = asyncio.new_event_loop()
         asyncio.set_event_loop(self.loop)
+
+        # Uncomment If you have aws account and want to store result in your AWS S3
+        # self.s3_client = S3Helper(access_key=self.config.AWS_ACCESS_KEY_ID,
+        #                           secret_key=self.config.AWS_SECRET_ACCESS_KEY,
+        #                           bucket_name=self.config.bucket_name)
 
         # Initialising run variables
         self.web_automator = None
@@ -46,10 +45,28 @@ class AutonodeService(ABC):
         self.prompt = ""
         self.response = ""
 
+    @retry(max_attempts=3, backoff=0, exceptions=(ElementNotFoundException, LLMObjectiveException))
+    def run(self, session: Session, request_id: int, request_dir: str, url: str):
+        try:
+            Requests.update_request_status(session=session, request_id=request_id,
+                                           status=RequestStatus.IN_PROGRESS.value)
+            self._setup_directories(request_id=request_id, request_dir=request_dir)
+            self._initialise(url=url)
+            self._run(session=session, request_id=request_id, request_dir=request_dir)
+            Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.COMPLETED.value)
+
+        except Exception as e:
+            Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.FAILED.value)
+            logger.error(f"Error in executing the objective for request id {request_id}: {e}")
+
+        finally:
+            if self.web_automator:
+                self.loop.run_until_complete(self.web_automator.stop_trace(request_dir))
+                self.loop.run_until_complete(self.web_automator.close_browser())
+
     def _run(self, session: Session, request_id: int, request_dir: str):
         steps = 0
         logger.info(f"Running Node : {self.curr_graph_node} {request_id}")
-        # Initialising the graph
         time.sleep(3)
         while True:
             try:
@@ -61,7 +78,8 @@ class AutonodeService(ABC):
                     web_automater=self.web_automator,
                     previous_node=self.prev_graph_node,
                     db_session=session,
-                    s3_client=self.s3_client,
+                    # Pass self.s3_client If you have AWS account and want to store result in your AWS S3
+                    s3_client=None,
                     request_id=request_id,
                     request_dir=request_dir,
                     prompt=self.prompt,
@@ -69,6 +87,10 @@ class AutonodeService(ABC):
                     loop=self.loop,
                     llm_instance=self.llm,
                 )
+
+            except (ElementNotFoundException, LLMObjectiveException) as e:
+                raise e
+
             except Exception as e:
                 logger.error(f"Error in running the Node: {self.curr_graph_node.node_name} - {e}")
                 raise Exception(f"Error in running the Node - {self.curr_graph_node.node_name}")
@@ -76,22 +98,6 @@ class AutonodeService(ABC):
             steps += 1
             if not self._traverse():
                 break
-
-    def run(self, session: Session, request_id: int, request_dir: str, url: str):
-        # try:
-        Requests.update_request_status(session=session, request_id=request_id,
-                                       status=RequestStatus.IN_PROGRESS.value)
-        self._setup_directories(request_id=request_id, request_dir=request_dir)
-        self._initialise(url=url)
-        self._run(session=session, request_id=request_id, request_dir=request_dir)
-        Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.COMPLETED.value)
-        # except Exception as e:
-        Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.FAILED.value)
-        logger.error(f"Error in executing the objective for request id {request_id}: {e}")
-        # finally:
-        if self.web_automator:
-            self.loop.run_until_complete(self.web_automator.stop_trace(request_dir))
-            self.loop.run_until_complete(self.web_automator.close_browser())
 
     def _setup_directories(self, request_id: int, request_dir: str):
         self.cropped_image_folder = os.path.join("cropped_image", str(request_id))
@@ -104,8 +110,6 @@ class AutonodeService(ABC):
         self.loop.run_until_complete(self.web_automator.initialise())
         self.graph = Graph(graph_path=self.graph_path)
         self.curr_graph_node, self.prev_graph_node = self.graph.graph_dict[self.root_node], None
-
-        # logger.info(f"Initialised the Autonode for the Request: {self.request_id} & URL: {self.url}")
 
     def _traverse(self) -> bool:
         self.prev_graph_node = self.curr_graph_node

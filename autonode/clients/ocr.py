@@ -21,7 +21,6 @@ class OCRClient:
         try:
             # files = {'image': open(image_path, 'rb')}
             response = self.http_client.post(endpoint="/api/ocr/image/get_para_text", data={'image_path': image_path})
-            print(f"OCR RESPONSE {response} {type(response)}")
             return response
 
         except Exception as e:

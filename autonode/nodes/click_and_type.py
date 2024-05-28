@@ -6,6 +6,7 @@ from autonode.models.actions import Actions
 from autonode.factories.node_factory import NodeFactory
 from autonode.services.web_automation import WebAutomationService
 from autonode.agents.typing_agent import TypingAgent
+from autonode.utils.exceptions.element_not_found_exception import ElementNotFoundException
 from autonode.utils.helpers.cleanup_helper import CleanupHelper
 from autonode.services.bounding_box import BoundingBoxService
 from autonode.utils.screenshot_generator import ScreenshotGenerator
@@ -127,9 +128,8 @@ class ClickableAndTypeableNode(Node):
 
         if updated_location is None:
             if self.counter_for_element_not_found_through_ocr_yolo == 5:
-                raise Exception(
-                    f"Element not found by OCR+YOLO. After 5 attempts. Traversal broke at element - {self.node_name}"
-                )
+                raise ElementNotFoundException(element=self.node_name, request_id=request_id)
+
             self.counter_for_element_not_found_through_ocr_yolo += 1  # Element not found by OCR+YOLO
 
             logger.info(f"Element not found - {self.node_name} by OCR+YOLO. Retrying..."
