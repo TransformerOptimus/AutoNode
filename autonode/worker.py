@@ -60,6 +60,7 @@ def initiate_autonode(
         url: str,
         graph_path: str,
         request_id: int,
+        planner_prompt: str,
         root_node: str = "1",
 ):
     session = create_session()
@@ -68,7 +69,8 @@ def initiate_autonode(
         driver = AutonodeService(
             objective=objective, graph_path=graph_path, root_node=root_node
         )
-        driver.run(session=session, request_id=request_id, url=url, request_dir=screenshots_dir)
+        driver.run(session=session, request_id=request_id, url=url, request_dir=screenshots_dir,
+                   planner_prompt=planner_prompt)
 
     except Exception as e:
         Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.FAILED.value)

@@ -17,15 +17,5 @@ class StringHelper:
         Returns:
         - A string containing only alphabets, numerics, and spaces.
         """
-        # Use regular expression to keep only alphabets, numerics, and spaces
         alphanumeric_string = re.sub(r'[^a-zA-Z0-9\s]', '', sentence)
         return alphanumeric_string
-
-    @classmethod
-    def type_response_cleaner(cls, string):
-        string = cls._remove_quotes(string)
-        return string
-
-    @classmethod
-    def _remove_quotes(cls, string):
-        return re.sub(r'["\']', '', string)

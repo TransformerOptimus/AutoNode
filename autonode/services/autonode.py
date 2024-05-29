@@ -46,13 +46,13 @@ class AutonodeService(ABC):
         self.response = ""
 
     @retry(max_attempts=3, backoff=0, exceptions=(ElementNotFoundException, LLMObjectiveException))
-    def run(self, session: Session, request_id: int, request_dir: str, url: str):
+    def run(self, session: Session, request_id: int, request_dir: str, url: str, planner_prompt: str):
         try:
             Requests.update_request_status(session=session, request_id=request_id,
                                            status=RequestStatus.IN_PROGRESS.value)
             self._setup_directories(request_id=request_id, request_dir=request_dir)
             self._initialise(url=url)
-            self._run(session=session, request_id=request_id, request_dir=request_dir)
+            self._run(session=session, request_id=request_id, request_dir=request_dir, planner_prompt=planner_prompt)
             Requests.update_request_status(session=session, request_id=request_id, status=RequestStatus.COMPLETED.value)
 
         except Exception as e:
@@ -65,7 +65,7 @@ class AutonodeService(ABC):
                 self.loop.run_until_complete(self.web_automator.stop_trace(request_dir))
                 self.loop.run_until_complete(self.web_automator.close_browser())
 
-    def _run(self, session: Session, request_id: int, request_dir: str):
+    def _run(self, session: Session, request_id: int, request_dir: str, planner_prompt: str):
         steps = 0
         logger.info(f"Running Node : {self.curr_graph_node} {request_id}")
         time.sleep(3)
@@ -87,6 +87,7 @@ class AutonodeService(ABC):
                     llm_response=self.response,
                     loop=self.loop,
                     llm_instance=self.llm,
+                    planner_prompt=planner_prompt
                 )
 
             except Exception as e:

@@ -72,8 +72,9 @@ class BoundingBoxService:
             if flag_element_type_match:
                 similarity = self.calculate_similarity(curr_element_name, obj['class'], distance)
             else:
-                annotation = ""
-                if obj['ocr_result'] is not None:
+                if obj['ocr_result'] in ["", None]:
+                    annotation = StringHelper.remove_special_chars(obj['class'])
+                else:
                     annotation = StringHelper.remove_special_chars(obj['ocr_result'])
 
                 similarity = self.calculate_similarity(annotation, node.node_name, distance)

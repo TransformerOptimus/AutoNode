@@ -31,7 +31,7 @@ class Navigation(Node):
             **kwargs,
     ):
         self.loop = loop
-        time.sleep(1)
+        time.sleep(5)
         self.loop.run_until_complete(web_automater.navigate_page(self.url))
         logger.info(f"Navigation to {self.url} completed")
 

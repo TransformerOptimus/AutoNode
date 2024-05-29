@@ -57,6 +57,7 @@ class PlanningNode(Node):
         prompt,
         llm_response,
         llm_instance,
+        planner_prompt=None,
         **kwargs
     ):
         """
@@ -70,9 +71,10 @@ class PlanningNode(Node):
             prompt: Prompt for selecting the node.
             llm_response: LLM (Language Model) response for the prompt.
             llm_instance: Instance of the LLM (Language Model)
+            planner_prompt: Which prompt to use
         """
         logger.info(f"Running Planning Node: {self.node_name} for request_id: {request_id}")
-        planning_agent = PlanningAgent(llm_instance=self.llm_4o)
+        planning_agent = PlanningAgent(llm_instance=self.llm_4o, planner_prompt=planner_prompt)
         autonode_object.objective = format_planning_prompt(planning_agent.execute(objective=objective))
         logger.info(f"Objective for the request_id: {request_id} is: {autonode_object.objective}")
 
