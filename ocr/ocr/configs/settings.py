@@ -15,7 +15,7 @@ class OcrConfig:
 
     base_image_path = os.getenv('BASE_IMAGE_PATH', 'gpu_service_images/')
     easyocr_image_decoder = os.getenv('EASYOCR_IMAGE_DECODER', 'beamsearch')
-    easyocr_text_threshold = os.getenv('EASYOCR_TEXT_THRESHOLD', '')
+    easyocr_text_threshold = os.getenv('EASYOCR_TEXT_THRESHOLD', 0.4)
     easyocr_image_decoder_beam_width = int(os.getenv('EASYOCR_IMAGE_DECODER_BEAM_WIDTH', 10))
     easyocr_image_decoder_width_ths = float(os.getenv('EASYOCR_IMAGE_DECODER_WIDTH_THS', 0.3))
     easyocr_image_decoder_batch_size = int(os.getenv('EASYOCR_IMAGE_DECODER_BATCH_SIZE', 10))
