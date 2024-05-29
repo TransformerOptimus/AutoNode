@@ -8,6 +8,7 @@ from ocr.ocr.configs.settings import OcrConfig
 class EasyOcr(object):
     def __init__(self, lang_list: List[str], gpu: bool):
         self.decoder = OcrConfig.easyocr_image_decoder
+        self.text_threshold = OcrConfig.easyocr_text_threshold
         self.beam_width = OcrConfig.easyocr_image_decoder_beam_width
         self.batch_size = OcrConfig.easyocr_image_decoder_batch_size
         self.width_ths = OcrConfig.easyocr_image_decoder_width_ths
