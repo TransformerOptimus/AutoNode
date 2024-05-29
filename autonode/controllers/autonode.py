@@ -23,6 +23,7 @@ def initiate_autonode(request: InitiateAutoNodeRequest):
                                 url=request.site_url,
                                 objective=request.objective,
                                 graph_path=request.graph_path,
+                                planner_prompt=request.planner_prompt,
                                 screenshots_dir=f"requests/{NamingHelper.request_folder_name_generator()}")
 
         return {"success": True, "message": f"Initiated AutoNode for Request ID {req.id} successfully"}
