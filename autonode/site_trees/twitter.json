@@ -1,0 +1,621 @@
+{
+    "1": {
+      "node_type": "planning",
+      "node_name": "Planning Node",
+      "description": "Plan the execution on the website. Extract the execution in steps explaining the LLM how to proceed.",
+      "planning_prompt": "",
+      "adjacent_from": [],
+      "adjacent_to": [
+        2
+      ]
+    },
+    "2": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Phone, email, or username",
+      "actionable_element_type": "textbox",
+      "location": [
+        48.6,
+        49.90
+      ],
+      "is_type": true,
+      "description": "Textbox used to input the email, phone number, or username  of the person for login in to twitter",
+      "type_description": "Type either the email or phone number or username of the person you want to login with.",
+      "adjacent_from": [],
+      "adjacent_to": [
+        3
+      ]
+    },
+    "3": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Password",
+      "actionable_element_type": "textbox",
+      "location": [49.5,41.90],
+      "is_type": true,
+      "description": "Textbox used for inputting the password of the person for login in to twitter",
+      "type_description": "Type the password of you want to login with.",
+      "adjacent_from": [],
+      "adjacent_to": [99]
+    },
+   "99": {
+        "node_type": "navigation",
+        "node_name": "twitter-navigation",
+        "url": "https://x.com/home",
+        "description": "You can choose this to navigate to the twitter home screen",
+        "adjacent_from": [],
+        "adjacent_to": [4]
+    },
+    "4": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Home",
+      "actionable_element_type": "button",
+      "location": [10.82,10.36],
+      "is_type": false,
+      "description": "Button used to navigate to the home page of Twitter, where users can view their feed and interact with tweets.",
+      "type_description": "",
+      "adjacent_from": [],
+      "adjacent_to": [5,6,7,8]
+    },
+    "5": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Explore",
+      "actionable_element_type": "button",
+      "location": [10.82,20.36],
+      "is_type": false,
+      "description": "Button used to navigate to the explore page of Twitter, where users can discover new content.",
+      "type_description": "",
+      "adjacent_from": [4],
+      "adjacent_to": [29]
+    },
+    "29": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Search",
+      "actionable_element_type": "textbox",
+      "location": [30.82,5.36],
+      "is_type": true,
+      "description": "Textbox used to search for content on Twitter's explore page, where users can discover new content and trends.",
+      "type_description": "You can type and search for the trending hashtags and topics in the search textbox",
+      "adjacent_from": [4],
+      "adjacent_to": [46, 47, 48, 49, 50]
+    },
+    "35": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "like",
+      "actionable_element_type": "like",
+      "location": [35.00, 50.00],
+      "is_type": false,
+      "description": "Icon used to like a post.",
+      "type_description": "",
+      "adjacent_from": [29],
+      "adjacent_to": []
+    },
+    "36": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "repost",
+      "actionable_element_type": "repost",
+      "location": [55.00, 60.00],
+      "is_type": false,
+      "description": "Icon used to repost a post.",
+      "type_description": "",
+      "adjacent_from": [29],
+      "adjacent_to": [45]
+    },
+    "45": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "repost",
+        "actionable_element_type": "button",
+        "location": [55.00, 60.00],
+        "is_type": false,
+        "description": "Button to repost and retweet the tweet",
+        "type_description": "",
+        "adjacent_from": [29],
+        "adjacent_to": []
+      },
+
+    "37": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "comment",
+      "actionable_element_type": "comment",
+      "location": [60.00, 60.00],
+      "is_type": false,
+      "description": "Icon used to comment on a post.",
+      "type_description": "",
+      "adjacent_from": [29],
+      "adjacent_to": [41, 42, 43, 44]
+    },
+    "41": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Post your reply",
+      "actionable_element_type": "textbox",
+      "location": [61.00, 61.00],
+      "is_type": true,
+      "description": "Textbox used to write a comment in reply to a post.",
+      "type_description": " You can write the comment in repkt to the post you are interacting with",
+      "adjacent_from": [37],
+      "adjacent_to": [42, 43, 44]
+    },
+    "42": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "",
+      "actionable_element_type": "icon",
+      "location": [62.00, 61.00],
+      "is_type": false,
+      "description": "Button used to insert media into the reply.",
+      "type_description": "",
+      "adjacent_from": [41],
+      "adjacent_to": [43, 44]
+    },
+    "43": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "",
+      "actionable_element_type": "icon",
+      "location": [63.00, 61.00],
+      "is_type": false,
+      "description": "Button used to insert a GIF into the reply.",
+      "type_description": "",
+      "adjacent_from": [41],
+      "adjacent_to": [44]
+    },
+    "44": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Reply",
+      "actionable_element_type": "button",
+      "location": [64.00, 61.00],
+      "is_type": false,
+      "description": "Button to post the reply.",
+      "type_description": "",
+      "adjacent_from": [41, 42, 43],
+      "adjacent_to": [4]
+    },
+
+    "38": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "stats",
+      "actionable_element_type": "stats",
+      "location": [65.00, 60.00],
+      "is_type": false,
+      "description": "Icon used to view the stats of a post.",
+      "type_description": "",
+      "adjacent_from": [29],
+      "adjacent_to": []
+    },
+    "39": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "save",
+      "actionable_element_type": "save",
+      "location": [70.00, 60.00],
+      "is_type": false,
+      "description": "Icon used to save and bookmark a post.",
+      "type_description": "",
+      "adjacent_from": [29],
+      "adjacent_to": []
+    },
+    "40": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "share",
+      "actionable_element_type": "share",
+      "location": [75.00, 60.00],
+      "is_type": false,
+      "description": "Icon used to share a post.",
+      "type_description": "",
+      "adjacent_from": [29],
+      "adjacent_to": [401, 402, 403]
+    },
+    "401": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Copy link",
+      "actionable_element_type": "button",
+      "location": [75.00, 61.00],
+      "is_type": false,
+      "description": "Button to copy the link of the post.",
+      "type_description": "",
+      "adjacent_from": [40],
+      "adjacent_to": [4]
+    },
+    "402": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Share post via ...",
+      "actionable_element_type": "button",
+      "location": [75.00, 62.00],
+      "is_type": false,
+      "description": "Button to share the post via other applications.",
+      "type_description": "",
+      "adjacent_from": [40],
+      "adjacent_to": []
+    },
+    "403": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Send via Direct Message",
+      "actionable_element_type": "button",
+      "location": [75.00, 63.00],
+      "is_type": false,
+      "description": "Button to send the post via direct message.",
+      "type_description": "",
+      "adjacent_from": [40],
+      "adjacent_to": []
+    },
+
+
+    "30": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "For You",
+      "actionable_element_type": "button",
+      "location": [15.00,25.00],
+      "is_type": false,
+      "description": "Button to view personalized content recommendations. Always select this button as the default selection for the tweets to view after search results ",
+      "type_description": "",
+      "adjacent_from": [29],
+      "adjacent_to": [35, 36, 37, 38, 39, 40]
+    },
+    "31": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Trending",
+      "actionable_element_type": "button",
+      "location": [15.00,30.00],
+      "is_type": false,
+      "description": "Button to view trending topics on Twitter. Always select this button after entering search query to view trending tweets",
+      "type_description": "",
+      "adjacent_from": [29],
+      "adjacent_to": [35, 36, 37, 38, 39, 40]
+    },
+    "32": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "News",
+      "actionable_element_type": "button",
+      "location": [15.00,35.00],
+      "is_type": false,
+      "description": "Button to view news content on Twitter. Always enter this button after entering search query to view tweets and news",
+      "type_description": "",
+      "adjacent_from": [29],
+      "adjacent_to": [35, 36, 37, 38, 39, 40]
+    },
+    "33": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Sports",
+      "actionable_element_type": "button",
+      "location": [15.00,40.00],
+      "is_type": false,
+      "description": "Button to view sports content on Twitter. Always select this button after entering search query to view tweets related to sports",
+      "type_description": "",
+      "adjacent_from": [29],
+      "adjacent_to": [35, 36, 37, 38, 39, 40]
+    },
+    "34": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Entertainment",
+      "actionable_element_type": "button",
+      "location": [15.00,45.00],
+      "is_type": false,
+      "description": "Button to view entertainment content on Twitter. Always select this button after entering search query to view tweets related to entertainment",
+      "type_description": "",
+      "adjacent_from": [29],
+      "adjacent_to": [35, 36, 37, 38, 39, 40]
+    },
+
+    "6": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Search",
+      "actionable_element_type": "textbox",
+      "location": [80.82,5.36],
+      "is_type": true,
+      "description": "Textbox used to search for content on Twitter.",
+      "type_description": "Type the keywords you want to search for.",
+      "adjacent_from": [4],
+      "adjacent_to": [46, 47, 48, 49, 50]
+    },
+    "46": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Top",
+      "actionable_element_type": "button",
+      "location": [27.00, 10.00],
+      "is_type": false,
+      "description": "Button to view top search results.",
+      "type_description": "",
+      "adjacent_from": [6],
+      "adjacent_to": [35, 36, 37, 38, 39, 40]
+    },
+    "47": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Latest",
+      "actionable_element_type": "button",
+      "location": [32.00, 10.00],
+      "is_type": false,
+      "description": "Button to view latest search results.",
+      "type_description": "",
+      "adjacent_from": [6],
+      "adjacent_to": [35, 36, 37, 38, 39, 40]
+    },
+    "48": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "People",
+      "actionable_element_type": "button",
+      "location": [42.00, 10.00],
+      "is_type": false,
+      "description": "Button to view people search results.",
+      "type_description": "",
+      "adjacent_from": [6],
+      "adjacent_to": [35, 36, 37, 38, 39, 40]
+    },
+    "49": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Media",
+      "actionable_element_type": "button",
+      "location": [50.00, 10.00],
+      "is_type": false,
+      "description": "Button to view media search results.",
+      "type_description": "",
+      "adjacent_from": [6],
+      "adjacent_to": [35, 36, 37, 38, 39, 40]
+    },
+    "50": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Lists",
+      "actionable_element_type": "button",
+      "location": [62.00, 10.00],
+      "is_type": false,
+      "description": "Button to view lists search results.",
+      "type_description": "",
+      "adjacent_from": [6],
+      "adjacent_to": [35, 36, 37, 38, 39, 40]
+    },
+
+    "7": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Post",
+      "actionable_element_type": "button",
+      "location": [16.82,78.36],
+      "is_type": false,
+      "description": "Button used to create a new post on Twitter.",
+      "type_description": "",
+      "adjacent_from": [4],
+      "adjacent_to": [9, 10, 11]
+    },
+    "9": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "What is happening?",
+      "actionable_element_type": "textbox",
+      "location": [50.00,20.00],
+      "is_type": true,
+      "description": "Textbox used to write a tweet.",
+      "type_description": "Type your tweet here.",
+      "adjacent_from": [7],
+      "adjacent_to": [10, 11, 12, 13, 14, 15, 18]
+    },
+
+    "10": {
+      "node_type": "clickable_and_typeable",
+      "node_name": " ",
+      "actionable_element_type": "icon",
+      "location": [55.00,15.00],
+      "is_type": false,
+      "description": "Icon to insert media into the tweet.",
+      "type_description": "",
+      "adjacent_from": [9],
+      "adjacent_to": [18]
+    },
+
+    "11": {
+      "node_type": "clickable_and_typeable",
+      "node_name": " ",
+      "actionable_element_type": "icon",
+      "location": [60.00,30.00],
+      "is_type": false,
+      "description": "Icon to insert a GIF into the tweet.",
+      "type_description": "",
+      "adjacent_from": [9],
+      "adjacent_to": [16, 17]
+    },
+    "16": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Search for GIFs",
+      "actionable_element_type": "textbox",
+      "location": [60.00,30.00],
+      "is_type": true,
+      "description": "Textbox used to search for GIFs.",
+      "type_description": "Type your search query here.",
+      "adjacent_from": [11],
+      "adjacent_to": [17]
+    },
+    "17": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "GIF Card",
+      "actionable_element_type": "button",
+      "location": [60.00,30.00],
+      "is_type": false,
+      "description": "Clickable card to select a GIF.",
+      "type_description": "",
+      "adjacent_from": [11,16],
+      "adjacent_to": [18]
+    },
+    "12": {
+      "node_type": "clickable_and_typeable",
+      "node_name": " ",
+      "actionable_element_type": "icon",
+      "location": [30.00,50.00],
+      "is_type": false,
+      "description": "Icon to insert a poll into the tweet.",
+      "type_description": "",
+      "adjacent_from": [9],
+      "adjacent_to": [18]
+    },
+    "13": {
+      "node_type": "clickable_and_typeable",
+      "node_name": " ",
+      "actionable_element_type": "icon",
+      "location": [35.00,50.00],
+      "is_type": false,
+      "description": "Icon to insert an emoji into the tweet.",
+      "type_description": "",
+      "adjacent_from": [9],
+      "adjacent_to": [18]
+    },
+
+    "14": {
+        "node_type": "clickable_and_typeable",
+        "node_name": " ",
+        "actionable_element_type": "icon",
+        "location": [41.00,40.00],
+        "is_type": false,
+        "description": "Icon to schedule the tweet.",
+        "type_description": "",
+        "adjacent_from": [9],
+        "adjacent_to": [21]
+    },
+    "21": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Month",
+        "actionable_element_type": "dropdown",
+        "location": [30.00,30.00],
+        "is_type": false,
+        "description": "Dropdown to select the month.",
+        "type_description": "",
+        "adjacent_from": [14],
+        "adjacent_to": [22]
+    },
+    "22": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Day",
+        "actionable_element_type": "dropdown",
+        "location": [40.00,30.00],
+        "is_type": false,
+        "description": "Dropdown to select the day.",
+        "type_description": "",
+        "adjacent_from": [21],
+        "adjacent_to": [23]
+    },
+    "23": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Year",
+        "actionable_element_type": "dropdown",
+        "location": [55.00,30.00],
+        "is_type": false,
+        "description": "Dropdown to select the year.",
+        "type_description": "",
+        "adjacent_from": [22],
+        "adjacent_to": [24]
+    },
+    "24": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Hour",
+        "actionable_element_type": "dropdown",
+        "location": [30.00,40.00],
+        "is_type": false,
+        "description": "Dropdown to select the hour.",
+        "type_description": "",
+        "adjacent_from": [23],
+        "adjacent_to": [25]
+    },
+    "25": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Minute",
+        "actionable_element_type": "dropdown",
+        "location": [40.00,40.00],
+        "is_type": false,
+        "description": "Dropdown to select the minute.",
+        "type_description": "",
+        "adjacent_from": [24],
+        "adjacent_to": [26]
+    },
+    "26": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "AM/PM",
+        "actionable_element_type": "dropdown",
+        "location": [60.00,40.00],
+        "is_type": false,
+        "description": "Dropdown to select AM or PM.",
+        "type_description": "",
+        "adjacent_from": [25],
+        "adjacent_to": [28]
+    },
+    "27": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Time zone",
+        "actionable_element_type": "dropdown",
+        "location": [70.00,10.00],
+        "is_type": false,
+        "description": "Dropdown to select the time zone.",
+        "type_description": "",
+        "adjacent_from": [26],
+        "adjacent_to": [28]
+    },
+    "28": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "Confirm",
+        "actionable_element_type": "button",
+        "location": [67.00,10.00],
+        "is_type": false,
+        "description": "Button to confirm the scheduled tweet.",
+        "type_description": "",
+        "adjacent_from": [27],
+        "adjacent_to": []
+    },
+      "15": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "drafts",
+        "actionable_element_type": "button",
+        "location": [67.00,10.00],
+        "is_type": false,
+        "description": "button to save the current tweet to draft",
+        "type_description": "",
+        "adjacent_from": [9],
+        "adjacent_to": [19, 20]
+      },
+      "19": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "save",
+        "actionable_element_type": "button",
+        "location": [50.00,55.00],
+        "is_type": false,
+        "description": "Button to save the post to drafts.",
+        "type_description": "",
+        "adjacent_from": [15],
+        "adjacent_to": []
+      },
+      "20": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "discard",
+        "actionable_element_type": "button",
+        "location": [50.00,60.00],
+        "is_type": false,
+        "description": "Button to discard the post.",
+        "type_description": "",
+        "adjacent_from": [15],
+        "adjacent_to": []
+      },
+
+
+    "18": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Post",
+      "actionable_element_type": "button",
+      "location": [67.00,50.00],
+      "is_type": false,
+      "description": "Button to post the tweet.",
+      "type_description": "",
+      "adjacent_from": [9,10,11,12,13],
+      "adjacent_to": []
+    },
+
+    "8": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Notification",
+      "actionable_element_type": "button",
+      "location": [16.82,21.36],
+      "is_type": false,
+      "description": "Button used to view notifications on Twitter.",
+      "type_description": "",
+      "adjacent_from": [4],
+      "adjacent_to": []
+    },
+
+    "51": {
+        "node_type": "clickable_and_typeable",
+        "node_name": "X",
+        "actionable_element_type": "button",
+        "location": [7.44,2.36],
+        "is_type": false,
+        "description": "You can choose this button to return to the home feed once all the required action steps are completed. ALways select this button once all the steps are completed ",
+        "type_description": "",
+        "adjacent_from": [4],
+        "adjacent_to": []
+      }
+}

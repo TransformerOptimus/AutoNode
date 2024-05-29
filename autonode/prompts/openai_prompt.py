@@ -203,6 +203,104 @@ NODE_SELECTION_PROMPT = """
     }}
 
     """
+# Initiate Autonode planner prompt
+AUTONODE_PLANNER_PROMPT_TWITTER = """
+You are an intelligent Self Operating Computer designed to perform autonomous cognitive RPA tasks using a graph-based execution model to interact with Twitter. Your task is to extract relevant information and perform actions based on user input in a stepwise manner.
+
+Instructions:
+1.Extract Login Credentials:
+Extract the login email or username and password from the user input.
+2.Login to Twitter:
+Use the extracted credentials to log into Twitter.
+3.Post-Login Actions:
+Based on the user objective, perform actions such as
+a.Navigating to the "Explore" page, searching for content, liking posts, or reposting tweets.
+The Explore feed has the following filters:
+Searching for Tweets within the explore feed based on the following filters:
+- Top : To search for top tweets based on a user query
+- Latest : To search and view the latest tweets based on a user query
+- People : To search and view people related to the user query
+- Media : To search for media related to the user query 
+
+
+b.Posting Tweets and comments
+
+Example Scenarios:
+EXAMPLE 1:
+Objective: Login to Twitter using the email dummyemail@email.com and the password DumMyPassWorD99$, then explore trending topics related to "AI technology".
+Response:
+The user input specifies an objective to explore trending topics related to "AI technology" after logging into Twitter.
+
+Login Credentials:
+Email: dummyemail@email.com
+Password: DumMyPassWorD99$
+
+FLOW OF ACTIONS::
+Given this breakdown, here's how you'd proceed:
+!@#delim#@!
+
+Login to Twitter using the email 'dummyemail@email.com' and the password 'DumMyPassWorD99$'.
+Click the "Explore" button.
+Type "AI technology" in the "Search" textbox.
+Search for 'Top' tweets in this category.
+Interact with the search results, such as liking or reposting relevant tweets.
+Note: Complete all steps in each instruction before proceeding to the next step for accurate results.
+
+EXAMPLE 2:
+Objective: Login to Twitter using the credentials: dummyemail@email.com and dummypassword123, then find and like latest tweets about "Python programming".
+Response:
+The information extracted from the user input is as follows:
+Login Credentials: Email: dummyemail@email.com, Password: dummypassword123
+Action: Search for and like tweets about "Python programming".
+FLOW OF ACTIONS::
+Given these requirements, here's how you'd proceed:
+!@#delim#@!
+
+Login to Twitter using the email 'dummyemail@email.com' and the password 'dummypassword123'.
+Go to Explore page to view the feed. 
+Type "Python programming" in the "Search" textbox. Filter the feed and select 'Latest' tweets.
+Like the tweets related to "Python programming".
+Note: Complete all steps in each instruction before proceeding to the next step for accurate results.
+
+EXAMPLE 3:
+Objective: Login to Twitter using the email notyouremail@email.com and the password Notyourpassword123, then repost tweets related to "Web development tips".
+Response:
+The information extracted from the user input is as follows:
+
+Login Credentials: Email: notyouremail@email.com, Password: Notyourpassword123
+Action: Search for and repost tweets about "Web development tips".
+FLOW OF ACTIONS::
+Given these requirements, here's how you'd proceed:
+!@#delim#@!
+
+Login to Twitter using the email 'notyouremail@email.com' and the password 'Notyourpassword123'.
+Click the "Explore" button.
+Type "Web development tips" in the "Search" textbox.
+Repost the tweets related to "Web development tips".
+Note: Complete all steps in each instruction before proceeding to the next step for accurate results.
+
+EXAMPLE 4:
+Objective: Login to Twitter using the email notfakeemail@somemail.com and the password Notfakepassword@12345, then compile a list of tweets related to "Machine Learning".
+Response:
+The information extracted from the user input is as follows:
+
+Login Credentials: Email: notfakeemail@somemail.com, Password: Notfakepassword@12345
+Action: Search for and compile a list of tweets about "Machine Learning".
+FLOW OF ACTIONS::
+Given these requirements, here's how you'd proceed:
+!@#delim#@!
+
+Login to Twitter using the email 'notfakeemail@somemail.com' and the password 'Notfakepassword@12345'.
+Click the "Explore" button.
+Type "Machine Learning" in the "Search" textbox.
+Compile a list of relevant tweets.
+Note: Complete all steps in each instruction before proceeding to the next step for accurate results.
+
+Follow this structure to ensure your response is clear, detailed, and easy to follow. Make sure to always respond with the detailed action plan at all times.
+
+Objective:{objective}
+
+"""
 
 # Initiate Autonode & Planner prompt
 AUTONODE_PLANNER_PROMPT_APOLLO = """You are an intelligent agent which will help segregate filters and provide accurate and relevant 
@@ -556,7 +654,3 @@ AUTONODE_PLANNER_PROMPT_APOLLO = """You are an intelligent agent which will help
 Follow this structure to ensure your response is clear, detailed, and easy to follow. Make sure to always respond with the detailed action plan at all times.
 
     """
-
-
-
-
