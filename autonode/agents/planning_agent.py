@@ -1,6 +1,8 @@
 from autonode.agents.base_agent import BaseAgent
 from autonode.llms.base_llm import BaseLlm
-from autonode.prompts.openai_prompt import AUTONODE_PLANNER_PROMPT_APOLLO, AUTONODE_PLANNER_PROMPT_TWITTER
+from autonode.prompts.openai_prompt import (AUTONODE_PLANNER_PROMPT_APOLLO,
+                                            AUTONODE_PLANNER_PROMPT_TWITTER,
+                                            AUTONODE_PLANNER_PROMPT_GMAIL)
 
 
 class PlanningAgent(BaseAgent):
@@ -9,7 +11,8 @@ class PlanningAgent(BaseAgent):
         self.llm = llm_instance
         self.prompt_hash = {
             "apollo": AUTONODE_PLANNER_PROMPT_APOLLO,
-            "twitter": AUTONODE_PLANNER_PROMPT_TWITTER
+            "twitter": AUTONODE_PLANNER_PROMPT_TWITTER,
+            "gmail": AUTONODE_PLANNER_PROMPT_GMAIL
         }
         self.prompt = self.prompt_hash.get(planner_prompt)
         super().__init__(llm_instance)
