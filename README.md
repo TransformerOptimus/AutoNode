@@ -112,10 +112,10 @@ AutoNode operates based on a site-graph that defines the navigation and actions 
 
      #### Sending a Request to AutoNode
 
-     To automate a task with AutoNode, you will use the /api/autonode endpoint. This endpoint accepts a JSON payload that specifies the task's objective, the path to the site-graph JSON file, the root node to start traversal, and the URL of the website you wish to interact with.
+     To automate a task with AutoNode, you will use the /api/autonode/initiate endpoint. This endpoint accepts a JSON payload that specifies the task's objective, the path to the site-graph JSON file, the root node to start traversal, and the URL of the website you wish to interact with.
 
      #### Request Structure
-     Here is the structure of the JSON payload you need to send to the `/api/autonode` endpoint:
+     Here is the structure of the JSON payload you need to send to the `/api/autonode/initiate` endpoint:
 
      ```
      {
@@ -148,7 +148,7 @@ AutoNode operates based on a site-graph that defines the navigation and actions 
 
      ```
      curl -X 'POST' \
-         'http://localhost:8001/api/autonode' \
+         'http://localhost:8001/api/autonode/initiate' \
          -H 'accept: application/json' \
          -H 'Content-Type: application/json' \
          -d '{
@@ -165,7 +165,7 @@ AutoNode operates based on a site-graph that defines the navigation and actions 
 AutoNode utilizes YOLO models for object detection and OCR for text recognition on web pages. These models are crucial for identifying clickable elements, reading text from images, and interacting with web pages dynamically.
 
 We are providing some general yolo models trained on `YOLO-V8` over thousands of web-screenshots
-Navigate to - `models/` dir to find those
+Navigate to - `yolo/web_detection_models/` dir to find those
 
 ### How to Train Your Own YOLO Model
 
