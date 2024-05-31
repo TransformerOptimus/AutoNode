@@ -14,6 +14,6 @@ app.add_middleware(
 app.include_router(autonode_router, prefix="/api/autonode")
 
 
-@app.get("/api/health")
+@app.get("/health")
 async def health_check():
-    return {"status": "AutoNode Running"}
+    return {"status": "AutoNode is Running"}

@@ -1,0 +1,179 @@
+{
+    "1": {
+      "node_type": "planning",
+      "node_name": "Planning Node",
+      "description": "Plan the execution on the website. Extract the execution in steps explaining the LLM how to proceed.",
+      "planning_prompt": "",
+      "adjacent_from": [],
+      "adjacent_to": [
+        2
+      ]
+    },
+    "2": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Email or Phone",
+      "actionable_element_type": "textbox",
+      "location": [48.6,49.90],
+      "is_type": true,
+      "description": "Textbox used to input the email or phone number for logging into Gmail.",
+      "type_description": "Type the email or phone number you want to login with.",
+      "adjacent_from": [],
+      "adjacent_to": [30]
+    },
+  "30": {
+      "node_type": "clickable_and_typeable",
+      "node_name": " ",
+      "actionable_element_type": "checkbox",
+      "location": [56,50],
+      "is_type": false,
+      "description": "Textbox used for showing password checkbox. Select this checkbox before entering password",
+      "type_description": " ",
+      "adjacent_from": [],
+      "adjacent_to": [3]
+    },
+    "3": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Enter your password",
+      "actionable_element_type": "textbox",
+      "location": [56,50],
+      "is_type": true,
+      "description": "Textbox used for inputting the password for logging into Gmail.",
+      "type_description": "Type the password you want to login with.",
+      "adjacent_from": [],
+      "adjacent_to": [4]
+    },
+    "4": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Inbox",
+      "actionable_element_type": "button",
+      "location": [10.82,10.36],
+      "is_type": false,
+      "description": "Button used to navigate to the inbox, where users can view their received emails.",
+      "type_description": "",
+      "adjacent_from": [],
+      "adjacent_to": [5,6,16]
+    },
+    "5": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Compose",
+      "actionable_element_type": "button",
+      "location": [10.82,20.36],
+      "is_type": false,
+      "description": "Button used to compose a new email.",
+      "type_description": "",
+      "adjacent_from": [4],
+      "adjacent_to": [10, 11, 12, 13]
+    },
+    "10": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Cc Bcc To",
+      "actionable_element_type": "textbox",
+      "location": [78.00, 47.00],
+      "is_type": true,
+      "description": "Textbox used to input the recipient's email address.",
+      "type_description": "Type the recipient's email address here.",
+      "adjacent_from": [5],
+      "adjacent_to": [11]
+    },
+    "11": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Subject",
+      "actionable_element_type": "textbox",
+      "location": [78.00, 52.00],
+      "is_type": true,
+      "description": "Textbox used to input the email subject.",
+      "type_description": "Type the email subject here.",
+      "adjacent_from": [10],
+      "adjacent_to": [12]
+    },
+    "12": {
+      "node_type": "clickable_and_typeable",
+      "node_name": " ",
+      "actionable_element_type": "textbox",
+      "location": [78.00, 69.00],
+      "is_type": true,
+      "description": "Textbox used to input the email body. This is the body field of the email",
+      "type_description": "Type the email body here.",
+      "adjacent_from": [11],
+      "adjacent_to": [13]
+    },
+    "13": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Send",
+      "actionable_element_type": "button",
+      "location": [60.00, 90.00],
+      "is_type": false,
+      "description": "Button used to send the composed email.",
+      "type_description": "",
+      "adjacent_from": [12],
+      "adjacent_to": []
+    },
+    "16": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Search mail",
+      "actionable_element_type": "textbox",
+      "location": [30.00,30.00],
+      "is_type": true,
+      "description": "Textbox used to search for emails.",
+      "type_description": "Type your search query here based on the user input",
+      "adjacent_from": [4],
+      "adjacent_to": [17]
+    },
+    "6": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Meet",
+      "actionable_element_type": "button",
+      "location": [5.00, 5.00],
+      "is_type": false,
+      "description": "Button used to access Google Meet options.",
+      "type_description": "",
+      "adjacent_from": [10],
+      "adjacent_to": [7, 8]
+    },
+    "7": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "New meeting",
+      "actionable_element_type": "button",
+      "location": [6.00, 6.00],
+      "is_type": false,
+      "description": "Button used to start a new meeting.",
+      "type_description": "",
+      "adjacent_from": [6],
+      "adjacent_to": []
+    },
+    "8": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Join a meeting",
+      "actionable_element_type": "button",
+      "location": [7.00, 7.00],
+      "is_type": false,
+      "description": "Button used to join an existing meeting.",
+      "type_description": "",
+      "adjacent_from": [6],
+      "adjacent_to": [9]
+    },
+    "9": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "Example: mymeeting or abc-mnop-xyz (dashes optional)",
+      "actionable_element_type": "textbox",
+      "location": [50.00, 50.00],
+      "is_type": true,
+      "description": "Textbox used to input the meeting code to join a meeting.",
+      "type_description": "Type the meeting code you want to join",
+      "adjacent_from": [8],
+      "adjacent_to": []
+    },
+  "17": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "More",
+      "actionable_element_type": "dropdown button",
+      "location": [8.00, 20.00],
+      "is_type": false,
+      "description": "Concluding button to view results and more actions after the search query. ",
+      "type_description": " ",
+      "adjacent_from": [8],
+      "adjacent_to": []
+    }
+
+}
+

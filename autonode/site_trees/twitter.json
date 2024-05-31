@@ -164,7 +164,7 @@
       "description": "Button to post the reply.",
       "type_description": "",
       "adjacent_from": [41, 42, 43],
-      "adjacent_to": [4]
+      "adjacent_to": [ ]
     },
 
     "38": {
@@ -209,7 +209,7 @@
       "description": "Button to copy the link of the post.",
       "type_description": "",
       "adjacent_from": [40],
-      "adjacent_to": [4]
+      "adjacent_to": []
     },
     "402": {
       "node_type": "clickable_and_typeable",

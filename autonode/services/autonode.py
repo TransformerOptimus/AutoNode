@@ -68,7 +68,7 @@ class AutonodeService(ABC):
     def _run(self, session: Session, request_id: int, request_dir: str, planner_prompt: str):
         steps = 0
         logger.info(f"Running Node : {self.curr_graph_node} {request_id}")
-        time.sleep(3)
+        time.sleep(5)
         while True:
             try:
                 self.curr_graph_node.run(
