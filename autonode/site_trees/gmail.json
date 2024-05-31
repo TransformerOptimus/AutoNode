@@ -18,18 +18,29 @@
       "description": "Textbox used to input the email or phone number for logging into Gmail.",
       "type_description": "Type the email or phone number you want to login with.",
       "adjacent_from": [],
+      "adjacent_to": [30]
+    },
+  "30": {
+      "node_type": "clickable_and_typeable",
+      "node_name": " ",
+      "actionable_element_type": "checkbox",
+      "location": [56,50],
+      "is_type": false,
+      "description": "Textbox used for showing password checkbox. Select this checkbox before entering password",
+      "type_description": " ",
+      "adjacent_from": [],
       "adjacent_to": [3]
     },
     "3": {
       "node_type": "clickable_and_typeable",
       "node_name": "Enter your password",
       "actionable_element_type": "textbox",
-      "location": [49.5,41.90],
+      "location": [56,50],
       "is_type": true,
       "description": "Textbox used for inputting the password for logging into Gmail.",
       "type_description": "Type the password you want to login with.",
       "adjacent_from": [],
-      "adjacent_to": []
+      "adjacent_to": [4]
     },
     "4": {
       "node_type": "clickable_and_typeable",
@@ -55,9 +66,9 @@
     },
     "10": {
       "node_type": "clickable_and_typeable",
-      "node_name": "Recipients",
+      "node_name": "Cc Bcc To",
       "actionable_element_type": "textbox",
-      "location": [50.00, 20.00],
+      "location": [78.00, 47.00],
       "is_type": true,
       "description": "Textbox used to input the recipient's email address.",
       "type_description": "Type the recipient's email address here.",
@@ -68,7 +79,7 @@
       "node_type": "clickable_and_typeable",
       "node_name": "Subject",
       "actionable_element_type": "textbox",
-      "location": [50.00, 25.00],
+      "location": [78.00, 52.00],
       "is_type": true,
       "description": "Textbox used to input the email subject.",
       "type_description": "Type the email subject here.",
@@ -79,7 +90,7 @@
       "node_type": "clickable_and_typeable",
       "node_name": " ",
       "actionable_element_type": "textbox",
-      "location": [70.00, 60.00],
+      "location": [78.00, 69.00],
       "is_type": true,
       "description": "Textbox used to input the email body. This is the body field of the email",
       "type_description": "Type the email body here.",
@@ -90,7 +101,7 @@
       "node_type": "clickable_and_typeable",
       "node_name": "Send",
       "actionable_element_type": "button",
-      "location": [55.00, 35.00],
+      "location": [60.00, 90.00],
       "is_type": false,
       "description": "Button used to send the composed email.",
       "type_description": "",
@@ -99,14 +110,14 @@
     },
     "16": {
       "node_type": "clickable_and_typeable",
-      "node_name": "Search",
+      "node_name": "Search mail",
       "actionable_element_type": "textbox",
       "location": [30.00,30.00],
       "is_type": true,
       "description": "Textbox used to search for emails.",
       "type_description": "Type your search query here based on the user input",
       "adjacent_from": [4],
-      "adjacent_to": []
+      "adjacent_to": [17]
     },
     "6": {
       "node_type": "clickable_and_typeable",
@@ -145,10 +156,21 @@
       "node_type": "clickable_and_typeable",
       "node_name": "Example: mymeeting or abc-mnop-xyz (dashes optional)",
       "actionable_element_type": "textbox",
-      "location": [8.00, 8.00],
+      "location": [50.00, 50.00],
       "is_type": true,
       "description": "Textbox used to input the meeting code to join a meeting.",
       "type_description": "Type the meeting code you want to join",
+      "adjacent_from": [8],
+      "adjacent_to": []
+    },
+  "17": {
+      "node_type": "clickable_and_typeable",
+      "node_name": "More",
+      "actionable_element_type": "dropdown button",
+      "location": [8.00, 20.00],
+      "is_type": false,
+      "description": "Concluding button to view results and more actions after the search query. ",
+      "type_description": " ",
       "adjacent_from": [8],
       "adjacent_to": []
     }
