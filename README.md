@@ -122,7 +122,7 @@ AutoNode operates based on a site-graph that defines the navigation and actions 
          "site_url": "string",
          "objective": "string",
          "graph_path": "string",
-         "planer_prompt": "string"
+         "planner_prompt": "string"
      
      }
      ```
