@@ -58,6 +58,8 @@ AutoNode is a self-operating computer system designed to automate web interactio
 
 ## Installation
 
+[![AutoNode Installation video](https://superagi.com/wp-content/uploads/2024/06/Youtube-Thumbnail.png)](https://www.youtube.com/watch?v=z5PUAep3_3o)
+
 To get started with AutoNode, you need to have Python installed on your system. Follow these steps to install AutoNode:
 
 1. Open your terminal and clone the SuperAGI repository.
