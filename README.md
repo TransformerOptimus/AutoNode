@@ -119,23 +119,25 @@ AutoNode operates based on a site-graph that defines the navigation and actions 
      #### Request Structure
      Here is the structure of the JSON payload you need to send to the `/api/autonode/initiate` endpoint:
 
-     ```
+     ```json
      {
          "site_url": "string",
          "objective": "string",
          "graph_path": "string",
          "planer_prompt": "string"
-     
      }
      ```
      
      Example request:
+
+     ```json
      {
         "site_url": "https://app.apollo.io/#/login",
         "objective": "Find the list of 20 ceo, cto of tech companies in san francisco. Login into apollo using the creds example@example.com and password dummypassword@123",
         "graph_path": "autonode/site_trees/apollo.json"
         "planner_prompt": "apollo"
      }
+     ```
      
      - site_url: The URL of the website AutoNode will visit and interact with.
 
@@ -148,7 +150,7 @@ AutoNode operates based on a site-graph that defines the navigation and actions 
 
    #### Using CURL
 
-     ```
+     ```sh
      curl -X 'POST' \
          'http://localhost:8001/api/autonode/initiate' \
          -H 'accept: application/json' \
@@ -158,7 +160,6 @@ AutoNode operates based on a site-graph that defines the navigation and actions 
          "objective": "Extract product details",
          "graph_path": "/path/to/your/site-graph.json"
          "planner_prompt": "planner_key"
-         
      }'
      ```
 
@@ -185,12 +186,12 @@ Navigate to - `yolo/web_detection_models/` dir to find those
 
 If you don't have enough resources on your local machine, you can host the OCR and YOLO modules on any cloud server. Following steps can be taken:
 
-1. In your ocr/.env file, add USE_REMOTE_OCR=True and set the url for the remote service in OCR_REMOTE_URL
+1. In your ocr/.env file, add `USE_REMOTE_OCR=True` and set the url for the remote service in `OCR_REMOTE_URL`
 
-2. In your yolo/.env file, add USE_REMOTE_YOLO=True and set the url for the remote service in YOLO_REMOTE_URL
+2. In your yolo/.env file, add `USE_REMOTE_YOLO=True` and set the url for the remote service in `YOLO_REMOTE_URL`
 
-3. Update the yolo web detection model path in your yolo/.env file, add SAHI_MODEL_PATH and ULTRALYTICS_MODEL_PATH. 
-Example: SAHI_MODEL_PATH = yolo/web_detection_models/twitter.pt
+3. Update the yolo web detection model path in your yolo/.env file, add `SAHI_MODEL_PATH` and `ULTRALYTICS_MODEL_PATH`. 
+Example: `SAHI_MODEL_PATH = yolo/web_detection_models/twitter.pt`
 
  
 
@@ -207,7 +208,7 @@ The site-graph is a JSON file that describes the structure and navigation flow o
 
 Example of a simple site-graph:
 
-```
+```json
 {
     "1": {
         "node_type": "clickable_and_typeable",
@@ -239,7 +240,7 @@ For use-cases which require downloading output, downloadable content (like outpu
  - In your autonode/.env file, configure AWS keys AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from your AWS console
  - In autonode/services/autonode.py, uncomment the following snippet at line 35, 
 
- ```
+ ```python
     # Uncomment If you have aws account and want to store result in your AWS S3
     # self.s3_client = S3Helper(access_key=self.config.AWS_ACCESS_KEY_ID,
     #                           secret_key=self.config.AWS_SECRET_ACCESS_KEY,
@@ -247,18 +248,18 @@ For use-cases which require downloading output, downloadable content (like outpu
 ```
  and pass s3_client=self.s3_client at line 84
  
- ```
+ ```python
     s3_client=None
  ```
  - In autonode/utils/screenshot_generator.py uncomment this on line 18,
 
- ```
+ ```python
     # Uncomment If you have aws account and want to store result in your AWS S3
     s3_client.upload_file(file_path=screenshot_filename)
  ```
  - In autonode/nodes/download.py uncomment this on line 44
  
- ```
+ ```python
     # Uncomment If you have aws account and want to store result in your AWS S3
     s3_client.upload_file(file_path=download_file_path)
  ```
@@ -266,7 +267,8 @@ For use-cases which require downloading output, downloadable content (like outpu
  2. Storing Screenshots & Downloaded files locally
  - By default, the screenshots and downloaded output are stored locally during execution and are deleted as the task completes or fails
  - In autonode/worker.py comment this finally block on line 79 to persist screenshots locally,
- ```
+
+ ```python
     finally:
             # Comment if you don't want to delete screenshots locally
             if os.path.exists(screenshots_dir):
