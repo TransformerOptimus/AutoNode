@@ -130,12 +130,15 @@ AutoNode operates based on a site-graph that defines the navigation and actions 
      ```
      
      Example request:
+
+     ```
      {
         "site_url": "https://app.apollo.io/#/login",
         "objective": "Find the list of 20 ceo, cto of tech companies in san francisco. Login into apollo using the creds example@example.com and password dummypassword@123",
         "graph_path": "autonode/site_trees/apollo.json"
         "planner_prompt": "apollo"
      }
+     ```
      
      - site_url: The URL of the website AutoNode will visit and interact with.
 
